@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		34C402AD861C2C80A729AF64 /* Pods_NewsKit_iOS_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1B83970B135F585AE92F03 /* Pods_NewsKit_iOS_App.framework */; };
 		7CB629AB2335065700C64618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB629AA2335065700C64618 /* AppDelegate.swift */; };
-		7CB629AD2335065700C64618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB629AC2335065700C64618 /* ViewController.swift */; };
-		7CB629B02335065700C64618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB629AE2335065700C64618 /* Main.storyboard */; };
+		7CB629AD2335065700C64618 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB629AC2335065700C64618 /* HomeViewController.swift */; };
+		7CB629B02335065700C64618 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB629AE2335065700C64618 /* Home.storyboard */; };
 		7CB629B22335065900C64618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB629B12335065900C64618 /* Assets.xcassets */; };
 		7CB629B52335065900C64618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB629B32335065900C64618 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,8 +19,8 @@
 		1485F1A53075B9072D5B568A /* Pods-NewsKit-iOS-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsKit-iOS-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsKit-iOS-App/Pods-NewsKit-iOS-App.release.xcconfig"; sourceTree = "<group>"; };
 		7CB629A72335065700C64618 /* NewsKit-iOS-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NewsKit-iOS-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB629AA2335065700C64618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7CB629AC2335065700C64618 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7CB629AF2335065700C64618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7CB629AC2335065700C64618 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7CB629AF2335065700C64618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		7CB629B12335065900C64618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CB629B42335065900C64618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CB629B62335065900C64618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,7 +51,7 @@
 		7CB6299E2335065700C64618 = {
 			isa = PBXGroup;
 			children = (
-				7CB629A92335065700C64618 /* NewsKit-iOS-App */,
+				7CB629A92335065700C64618 /* Source */,
 				7CB629A82335065700C64618 /* Products */,
 				C81F9DB3BEE2785EA7B373F6 /* Pods */,
 				2FC1C5BA4C6F52A237C0BF90 /* Frameworks */,
@@ -66,17 +66,57 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7CB629A92335065700C64618 /* NewsKit-iOS-App */ = {
+		7CB629A92335065700C64618 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				7CB629C1233508E500C64618 /* Home */,
+				7CB629C0233508D800C64618 /* Models */,
+				7CB629BF233508C400C64618 /* Resources */,
+				7CB629BE2335089A00C64618 /* Supporting Files */,
+				7CB629BD2335088200C64618 /* Startup */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		7CB629BD2335088200C64618 /* Startup */ = {
 			isa = PBXGroup;
 			children = (
 				7CB629AA2335065700C64618 /* AppDelegate.swift */,
-				7CB629AC2335065700C64618 /* ViewController.swift */,
-				7CB629AE2335065700C64618 /* Main.storyboard */,
-				7CB629B12335065900C64618 /* Assets.xcassets */,
+			);
+			path = Startup;
+			sourceTree = "<group>";
+		};
+		7CB629BE2335089A00C64618 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				7CB629B32335065900C64618 /* LaunchScreen.storyboard */,
 				7CB629B62335065900C64618 /* Info.plist */,
 			);
-			path = "NewsKit-iOS-App";
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7CB629BF233508C400C64618 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7CB629B12335065900C64618 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7CB629C0233508D800C64618 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7CB629C1233508E500C64618 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				7CB629AE2335065700C64618 /* Home.storyboard */,
+				7CB629AC2335065700C64618 /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		C81F9DB3BEE2785EA7B373F6 /* Pods */ = {
@@ -95,6 +135,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7CB629B92335065900C64618 /* Build configuration list for PBXNativeTarget "NewsKit-iOS-App" */;
 			buildPhases = (
+				7CB629BC2335082C00C64618 /* ShellScript */,
 				3AB0B9F079D7BC0238A93B8A /* [CP] Check Pods Manifest.lock */,
 				7CB629A32335065700C64618 /* Sources */,
 				7CB629A42335065700C64618 /* Frameworks */,
@@ -149,7 +190,7 @@
 			files = (
 				7CB629B52335065900C64618 /* LaunchScreen.storyboard in Resources */,
 				7CB629B22335065900C64618 /* Assets.xcassets in Resources */,
-				7CB629B02335065700C64618 /* Main.storyboard in Resources */,
+				7CB629B02335065700C64618 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +215,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7CB629BC2335082C00C64618 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -181,7 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CB629AD2335065700C64618 /* ViewController.swift in Sources */,
+				7CB629AD2335065700C64618 /* HomeViewController.swift in Sources */,
 				7CB629AB2335065700C64618 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,12 +247,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7CB629AE2335065700C64618 /* Main.storyboard */ = {
+		7CB629AE2335065700C64618 /* Home.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7CB629AF2335065700C64618 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
 		7CB629B32335065900C64618 /* LaunchScreen.storyboard */ = {
@@ -331,7 +389,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F62X9247PK;
-				INFOPLIST_FILE = "NewsKit-iOS-App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -350,7 +408,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = F62X9247PK;
-				INFOPLIST_FILE = "NewsKit-iOS-App/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
