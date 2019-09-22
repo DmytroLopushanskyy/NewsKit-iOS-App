@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Struct {
+struct Article {
     var url, title, description, image, keywords, website: String;
     init(url:String, title:String, description:String, image:String, keywords:String, website:String) {
         self.url = url;
