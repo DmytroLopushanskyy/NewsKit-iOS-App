@@ -8,39 +8,37 @@
 
 import Foundation
 
-
 class News {
-    var news:Array<Article>;
+    var news: [Article]
     init() {
         self.news = []
     }
-    
-    func load( url: URL, userCompletionHandler: @escaping (Array<Article>, Error?) -> Void) {
+
+    func load( url: URL) {
         // procesing API requests and loading the news
-        var result:Array<Article> = []
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil{
+        var result: [Article] = []
+        let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
+            if error != nil {
                 print(error!)
             } else {
                 guard let data = data else {return}
-                do{
+                do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
                     if let recipe = json as? [String: Any] {
                         if let articles = recipe["lastnews"] as? NSArray {
-                            for article in (articles as NSArray as! [NSDictionary]){
+                            for article in articles as NSArray as! [NSDictionary] {
                                 guard let url = article["url"] as? String else {continue}
                                 guard let title = article["title"] as? String else {continue}
                                 guard let description = article["description"] as? String else {continue}
                                 guard let image = article["image"] as? String else {continue}
                                 guard let keywords = article["keywords"] as? String else {continue}
                                 guard let website = article["website"] as? String else {continue}
-                                
+
                                 result.append(Article(url: url, title: title, description: description, image: image, keywords: keywords, website: website))
                             }
-                            userCompletionHandler(result, nil)
                         }
                     }
-                }catch{
+                } catch {
                     print("Json Loading Failed")
                 }
             }

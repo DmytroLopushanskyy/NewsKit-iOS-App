@@ -8,15 +8,14 @@
 
 import Foundation
 
-
 struct Article {
-    var url, title, description, image, keywords, website: String;
-    init(url:String, title:String, description:String, image:String, keywords:String, website:String) {
-        self.url = url;
-        self.title = title;
-        self.description = description;
-        self.image = image;
-        self.keywords = keywords;
-        self.website = website;
+    var url, title, description, image, keywords, website: String
+    init(url: String, title: String, description: String, image: String, keywords: String, website: String) {
+        self.url = url
+        self.title = title
+        self.description = description
+        self.image = image
+        self.keywords = keywords
+        self.website = website
     }
 }
