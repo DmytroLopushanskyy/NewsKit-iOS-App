@@ -8,8 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
+    @IBAction func btn(_ sender: Any) {
+        let articleStoryboard = UIStoryboard(name: "Article", bundle: nil)
+        let articleViewController = articleStoryboard.instantiateViewController(withIdentifier: "Article")
+        self.present(articleViewController, animated: true, completion: nil
+        )
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

@@ -17,6 +17,9 @@
 		7CB629B02335065700C64618 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB629AE2335065700C64618 /* Home.storyboard */; };
 		7CB629B22335065900C64618 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB629B12335065900C64618 /* Assets.xcassets */; };
 		7CB629B52335065900C64618 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB629B32335065900C64618 /* LaunchScreen.storyboard */; };
+		7CB629D12337FD4700C64618 /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB629D02337FD4700C64618 /* Article.storyboard */; };
+		7CB629D32337FD5C00C64618 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB629D22337FD5C00C64618 /* ArticleViewController.swift */; };
+		7CE5F9892339ED9E001E03B0 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5F9882339ED9E001E03B0 /* ImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		7CB629B12335065900C64618 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CB629B42335065900C64618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7CB629B62335065900C64618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CB629D02337FD4700C64618 /* Article.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Article.storyboard; sourceTree = "<group>"; };
+		7CB629D22337FD5C00C64618 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
+		7CE5F9882339ED9E001E03B0 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		A1F211BA4756641479D10FB0 /* Pods-NewsKit-iOS-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsKit-iOS-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsKit-iOS-App/Pods-NewsKit-iOS-App.debug.xcconfig"; sourceTree = "<group>"; };
 		CF1B83970B135F585AE92F03 /* Pods_NewsKit_iOS_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsKit_iOS_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -95,6 +101,8 @@
 		7CB629A92335065700C64618 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				7CE5F9872339ED84001E03B0 /* Extensions */,
+				7CB629CF2337F93F00C64618 /* ArticleView */,
 				6A253E612337CF99001E109C /* Network */,
 				6AFEDE4323351EAE001998BB /* NewsWebsites */,
 				7CB629C1233508E500C64618 /* Home */,
@@ -145,6 +153,23 @@
 				7CB629AC2335065700C64618 /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		7CB629CF2337F93F00C64618 /* ArticleView */ = {
+			isa = PBXGroup;
+			children = (
+				7CB629D02337FD4700C64618 /* Article.storyboard */,
+				7CB629D22337FD5C00C64618 /* ArticleViewController.swift */,
+			);
+			path = ArticleView;
+			sourceTree = "<group>";
+		};
+		7CE5F9872339ED84001E03B0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7CE5F9882339ED9E001E03B0 /* ImageView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C81F9DB3BEE2785EA7B373F6 /* Pods */ = {
@@ -219,6 +244,7 @@
 				7CB629B52335065900C64618 /* LaunchScreen.storyboard in Resources */,
 				6AFEDE4523351EE5001998BB /* NewsWebsites.storyboard in Resources */,
 				7CB629B22335065900C64618 /* Assets.xcassets in Resources */,
+				7CB629D12337FD4700C64618 /* Article.storyboard in Resources */,
 				7CB629B02335065700C64618 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,9 +295,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CB629AD2335065700C64618 /* HomeViewController.swift in Sources */,
+				7CB629D32337FD5C00C64618 /* ArticleViewController.swift in Sources */,
 				7CB629AB2335065700C64618 /* AppDelegate.swift in Sources */,
 				6A253E632337D0C3001E109C /* News.swift in Sources */,
 				6AFEDE4723351F00001998BB /* NewsWebsitesViewController.swift in Sources */,
+				7CE5F9892339ED9E001E03B0 /* ImageView.swift in Sources */,
 				6A253E652337D10A001E109C /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
