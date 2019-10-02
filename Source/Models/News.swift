@@ -14,7 +14,7 @@ class News {
         self.news = []
     }
 
-    func load( url: URL) {
+    func load( url: URL, userCompletionHandler: @escaping (Array<Article>, Error?) -> Void) {
         // procesing API requests and loading the news
         var result: [Article] = []
         let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
@@ -36,6 +36,7 @@ class News {
 
                                 result.append(Article(url: url, title: title, description: description, image: image, keywords: keywords, website: website))
                             }
+                            userCompletionHandler(result, nil)
                         }
                     }
                 } catch {

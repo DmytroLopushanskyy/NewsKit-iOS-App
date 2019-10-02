@@ -14,7 +14,7 @@ struct CellData {
     var selected: Bool = false
 }
 
-class TableViewController: UITableViewController {
+class TopicsTableViewController: UITableViewController {
     var categories: [CellData] = [CellData(name: "Політика", image: UIImage(named: "politics")),
                                 CellData(name: "Медицина", image: UIImage(named: "medicine")),
                                 CellData(name: "Програмування", image: UIImage(named: "programing")),
