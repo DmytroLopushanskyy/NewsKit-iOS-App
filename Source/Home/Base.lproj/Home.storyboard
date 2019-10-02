@@ -19,16 +19,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNX-Gg-3UK">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="189.5" y="433" width="35" height="30"/>
+                                <state key="normal" title="oleht"/>
                                 <connections>
                                     <action selector="btn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9gV-pa-vIj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g48-ew-Mqf">
+                                <rect key="frame" x="186" y="462" width="42" height="30"/>
+                                <state key="normal" title="olehm"/>
+                                <connections>
+                                    <action selector="olehm:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rjn-1T-Ecb"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cNX-Gg-3UK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="389" id="3Ey-sw-yxY"/>
+                            <constraint firstItem="g48-ew-Mqf" firstAttribute="top" secondItem="cNX-Gg-3UK" secondAttribute="bottom" constant="-1" id="6I7-Zp-vLe"/>
+                            <constraint firstItem="g48-ew-Mqf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="De6-zO-lhX"/>
                             <constraint firstItem="cNX-Gg-3UK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dqb-Bn-1p2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
