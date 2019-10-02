@@ -9,10 +9,15 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
-    @IBAction func btn(_ sender: Any) {
+    @IBAction func olehm(_ sender: Any) {
         let articleStoryboard = UIStoryboard(name: "Article", bundle: nil)
         let articleViewController = articleStoryboard.instantiateViewController(withIdentifier: "Article")
+        self.present(articleViewController, animated: true, completion: nil
+        )
+    }
+    @IBAction func btn(_ sender: Any) {
+        let articleStoryboard = UIStoryboard(name: "NewsWebsites", bundle: nil)
+        let articleViewController = articleStoryboard.instantiateViewController(withIdentifier: "Websites")
         self.present(articleViewController, animated: true, completion: nil
         )
     }
