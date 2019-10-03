@@ -2,20 +2,35 @@
 //  Article.swift
 //  NewsKit-iOS-App
 //
-//  Created by Oleh Mykytyn on 9/22/19.
+//  Created by Олег on 03.10.2019.
 //  Copyright © 2019 OlehTyzhai. All rights reserved.
 //
 
 import Foundation
 
-struct Article {
+
+struct ArticleData {
     var url, title, description, image, keywords, website: String
-    init(url: String, title: String, description: String, image: String, keywords: String, website: String) {
-        self.url = url
-        self.title = title
-        self.description = description
-        self.image = image
-        self.keywords = keywords
-        self.website = website
+    
+    enum CodingKeys: String, CodingKey{
+        case url = "url"
+        case title = "title"
+        case description = "description"
+        case image = "image"
+        case keywords = "keywords"
+        case website = "website"
+    }
+}
+
+extension ArticleData: Decodable{
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.url = try container.decode(String.self, forKey: .url)
+        self.title = try container.decode(String.self, forKey: .title)
+        self.description = try container.decode(String.self, forKey: .description)
+        self.image = try container.decode(String.self, forKey: .image)
+        self.keywords = try container.decode(String.self, forKey: .keywords)
+        self.website = try container.decode(String.self, forKey: .website)
+
     }
 }
