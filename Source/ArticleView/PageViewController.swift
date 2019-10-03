@@ -26,26 +26,28 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadData()
-//
-//        let dataManager = DataManager()
-//        dataManager.uploadDataFromAPI(userID: 138918380)
-//        do {
-//          newsList = try context.fetch(Artticle.fetchRequest())
-//        } catch let error as NSError {
-//          print("Could not fetch. \(error), \(error.userInfo)")
-//        }
-//        print(newsList)
+//        self.loadData()
 
-        let vc = generateContentViewController(index: 0)
-        pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
-        pageController.dataSource = self
+        NewsLoader.shared.loadGlobal(userID: 138918380)
+        NotificationCenter.default.addObserver(self, selector: #selector(dataLoaded), name: NSNotification.Name(rawValue: "synced"), object: nil)
+        self.pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        self.pageController.dataSource = self
+        self.pageController.delegate = self
 
         addChild(pageController)
         view.addSubview(pageController.view)
-        self.pageController.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
+
 
         // Do any additional setup after loading the view.
+    }
+    @objc func dataLoaded() {
+        DispatchQueue.main.async {
+            self.newsList = NewsStorage.shared.news
+            let vc = self.generateContentViewController(index: 0)
+            self.pageController.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
+            print(self.newsList)
+        }
+
     }
 
     func generateContentViewController(index: Int) -> PageContentViewController {
@@ -62,7 +64,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         group.enter()
         let news = News()
         news.load(url: URL(string: "http://newskit.pythonanywhere.com/api/getlastnews?user=138918380")!) { (result, _) in
-            self.newsList = result
+//            self.newsList = result
             group.leave()
         }
         group.wait()

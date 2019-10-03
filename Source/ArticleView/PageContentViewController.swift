@@ -10,8 +10,8 @@ import UIKit
 
 class PageContentViewController: UIViewController {
     var index: Int = 0
-    var article: Article?
-    var result: [Article] = []
+    var article: ArticleData?
+    var result: [ArticleData] = []
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var textLabel: UILabel!
@@ -23,7 +23,6 @@ class PageContentViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         textLabel.text = article?.title
         desc.text = article?.description
-        print(article?.image)
         if let imageUrl = article?.image {
             let url = URL(string: imageUrl)!
             let image = try? UIImage(data: Data(contentsOf: url))
