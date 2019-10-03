@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         */
         let container = NSPersistentContainer(name: "NewsKit")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-            print(storeDescription)
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }

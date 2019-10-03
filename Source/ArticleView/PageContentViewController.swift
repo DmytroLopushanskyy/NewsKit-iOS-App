@@ -12,6 +12,7 @@ class PageContentViewController: UIViewController {
     var index: Int = 0
     var article: ArticleData?
     var result: [ArticleData] = []
+    var image: UIImage?
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var textLabel: UILabel!
@@ -19,18 +20,20 @@ class PageContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView.layer.cornerRadius = 30
+        if let imageUrl = article?.image {
+            let url = URL(string: imageUrl)!
+            self.image = try? UIImage(data: Data(contentsOf: url))
+
+        }
     }
+        
     override func viewWillAppear(_ animated: Bool) {
         textLabel.text = article?.title
         desc.text = article?.description
-        if let imageUrl = article?.image {
-            let url = URL(string: imageUrl)!
-            let image = try? UIImage(data: Data(contentsOf: url))
-            if let image = image {
-                img.image = image
-                img.backgroundColor = UIColor(patternImage: image)
-                view.backgroundColor = UIColor(patternImage: image)
-            }
+        if let image = self.image {
+            img.image = image
+            img.backgroundColor = UIColor(patternImage: image)
+            view.backgroundColor = UIColor(patternImage: image)
         }
     }
 

@@ -6,7 +6,7 @@
 //  Copyright © 2019 OlehTyzhai. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class NewsLoader{
     static let shared = NewsLoader()
@@ -18,12 +18,16 @@ class NewsLoader{
         let dataTask = URLSession.shared.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
             if let d = data, d.count > 0 {
                 let news = try? self.decoder.decode(NewsData.self, from: d)
-                
                 NewsStorage.shared.news = news?.news ?? []
+//                CoreStorage.shared.loadNewArticles(from: NewsStorage.shared.news)
                 NewsStorage.shared.sync()
             }
         }
         dataTask.priority = 0.9
         dataTask.resume()
+    }
+    
+    func loadLocal(userID: Int){
+        
     }
 }

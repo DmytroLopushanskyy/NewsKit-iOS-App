@@ -46,7 +46,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
             self.newsList = NewsStorage.shared.news
             let vc = self.generateContentViewController(index: 0)
             self.pageController.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
-            print(self.newsList)
         }
 
     }
