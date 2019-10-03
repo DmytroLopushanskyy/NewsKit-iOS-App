@@ -24,7 +24,7 @@ class PageContentViewController: UIViewController {
         textLabel.text = article?.title
         desc.text = article?.description
         print(article?.image)
-        if let imageUrl = article?.image{
+        if let imageUrl = article?.image {
             let url = URL(string: imageUrl)!
             let image = try? UIImage(data: Data(contentsOf: url))
             img.image = image

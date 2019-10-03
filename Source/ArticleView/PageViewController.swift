@@ -27,6 +27,16 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadData()
+//
+//        let dataManager = DataManager()
+//        dataManager.uploadDataFromAPI(userID: 138918380)
+//        do {
+//          newsList = try context.fetch(Artticle.fetchRequest())
+//        } catch let error as NSError {
+//          print("Could not fetch. \(error), \(error.userInfo)")
+//        }
+//        print(newsList)
+
         let vc = generateContentViewController(index: 0)
         pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         pageController.dataSource = self
