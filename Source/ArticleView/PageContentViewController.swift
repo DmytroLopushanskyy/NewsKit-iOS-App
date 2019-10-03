@@ -19,9 +19,6 @@ class PageContentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView.layer.cornerRadius = 30
-        
-
-        // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         textLabel.text = article?.title
@@ -34,9 +31,6 @@ class PageContentViewController: UIViewController {
             img.backgroundColor = UIColor(patternImage: img.image!)
             view.backgroundColor = UIColor(patternImage: img.image!)
         }
-        
-
-
     }
 
     /*

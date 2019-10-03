@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		34C402AD861C2C80A729AF64 /* Pods_NewsKit_iOS_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1B83970B135F585AE92F03 /* Pods_NewsKit_iOS_App.framework */; };
 		47AB79DA2344BF2700EACB89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79D82344BF2700EACB89 /* AppDelegate.swift */; };
-		47AB79DB2344BF2700EACB89 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79D92344BF2700EACB89 /* SceneDelegate.swift */; };
 		47AB79E62344BF7600EACB89 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79DE2344BF7600EACB89 /* AppCoordinator.swift */; };
 		47AB79E72344BF7600EACB89 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79DF2344BF7600EACB89 /* RootCoordinator.swift */; };
 		47AB79E82344BF7600EACB89 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79E12344BF7600EACB89 /* NewsCell.swift */; };
 		47AB79E92344BF7600EACB89 /* CellContainingTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79E22344BF7600EACB89 /* CellContainingTableVC.swift */; };
 		47AB79EA2344BF7600EACB89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47AB79E32344BF7600EACB89 /* Main.storyboard */; };
-		47AB79EB2344BF7600EACB89 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79E42344BF7600EACB89 /* TableViewController.swift */; };
-		47AB79EC2344BF7600EACB89 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79E52344BF7600EACB89 /* CollectionViewController.swift */; };
+		47AB79EB2344BF7600EACB89 /* MainLabelsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79E42344BF7600EACB89 /* MainLabelsTableVC.swift */; };
+		47AB79EC2344BF7600EACB89 /* MainScreenCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79E52344BF7600EACB89 /* MainScreenCollectionVC.swift */; };
 		47AB79EE2344BF8300EACB89 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79ED2344BF8300EACB89 /* UIView+Ext.swift */; };
 		47AB79F22344C92500EACB89 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79F02344C92500EACB89 /* News.swift */; };
 		47AB79F32344C92600EACB89 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79F12344C92500EACB89 /* Article.swift */; };
 		47AB79F82344C94300EACB89 /* Article.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47AB79F52344C94300EACB89 /* Article.storyboard */; };
 		47AB79F92344C94300EACB89 /* PageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79F62344C94300EACB89 /* PageContentViewController.swift */; };
 		47AB79FA2344C94300EACB89 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79F72344C94300EACB89 /* PageViewController.swift */; };
-		6AA6D55123448FC10026CFCC /* TopicsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA6D55023448FC10026CFCC /* TopicsTableViewController.swift */; };
+		47AB79FE2345EE3600EACB89 /* Loading.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47AB79FD2345EE3600EACB89 /* Loading.storyboard */; };
+		6AA6D55123448FC10026CFCC /* TopicsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA6D55023448FC10026CFCC /* TopicsTableVC.swift */; };
 		6AA6D55323448FCD0026CFCC /* Topics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA6D55223448FCD0026CFCC /* Topics.storyboard */; };
 		7CB629AD2335065700C64618 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB629AC2335065700C64618 /* HomeViewController.swift */; };
 		7CB629B02335065700C64618 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB629AE2335065700C64618 /* Home.storyboard */; };
@@ -35,21 +35,21 @@
 /* Begin PBXFileReference section */
 		1485F1A53075B9072D5B568A /* Pods-NewsKit-iOS-App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsKit-iOS-App.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsKit-iOS-App/Pods-NewsKit-iOS-App.release.xcconfig"; sourceTree = "<group>"; };
 		47AB79D82344BF2700EACB89 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		47AB79D92344BF2700EACB89 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		47AB79DE2344BF7600EACB89 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		47AB79DF2344BF7600EACB89 /* RootCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootCoordinator.swift; sourceTree = "<group>"; };
 		47AB79E12344BF7600EACB89 /* NewsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		47AB79E22344BF7600EACB89 /* CellContainingTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellContainingTableVC.swift; sourceTree = "<group>"; };
 		47AB79E32344BF7600EACB89 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		47AB79E42344BF7600EACB89 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		47AB79E52344BF7600EACB89 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		47AB79E42344BF7600EACB89 /* MainLabelsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainLabelsTableVC.swift; sourceTree = "<group>"; };
+		47AB79E52344BF7600EACB89 /* MainScreenCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenCollectionVC.swift; sourceTree = "<group>"; };
 		47AB79ED2344BF8300EACB89 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		47AB79F02344C92500EACB89 /* News.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		47AB79F12344C92500EACB89 /* Article.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		47AB79F52344C94300EACB89 /* Article.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Article.storyboard; sourceTree = "<group>"; };
 		47AB79F62344C94300EACB89 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
 		47AB79F72344C94300EACB89 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		6AA6D55023448FC10026CFCC /* TopicsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableViewController.swift; sourceTree = "<group>"; };
+		47AB79FD2345EE3600EACB89 /* Loading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
+		6AA6D55023448FC10026CFCC /* TopicsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableVC.swift; sourceTree = "<group>"; };
 		6AA6D55223448FCD0026CFCC /* Topics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Topics.storyboard; sourceTree = "<group>"; };
 		7CB629A72335065700C64618 /* NewsKit-iOS-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NewsKit-iOS-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB629AC2335065700C64618 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -88,8 +88,8 @@
 				47AB79DD2344BF7600EACB89 /* Coordinators */,
 				47AB79E02344BF7600EACB89 /* CustomCells */,
 				47AB79E32344BF7600EACB89 /* Main.storyboard */,
-				47AB79E42344BF7600EACB89 /* TableViewController.swift */,
-				47AB79E52344BF7600EACB89 /* CollectionViewController.swift */,
+				47AB79E42344BF7600EACB89 /* MainLabelsTableVC.swift */,
+				47AB79E52344BF7600EACB89 /* MainScreenCollectionVC.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -142,7 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				6AA6D55223448FCD0026CFCC /* Topics.storyboard */,
-				6AA6D55023448FC10026CFCC /* TopicsTableViewController.swift */,
+				6AA6D55023448FC10026CFCC /* TopicsTableVC.swift */,
 			);
 			path = Topics;
 			sourceTree = "<group>";
@@ -186,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				47AB79D82344BF2700EACB89 /* AppDelegate.swift */,
-				47AB79D92344BF2700EACB89 /* SceneDelegate.swift */,
 			);
 			path = Startup;
 			sourceTree = "<group>";
@@ -194,6 +193,7 @@
 		7CB629BE2335089A00C64618 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				47AB79FD2345EE3600EACB89 /* Loading.storyboard */,
 				7CB629B32335065900C64618 /* LaunchScreen.storyboard */,
 				7CB629B62335065900C64618 /* Info.plist */,
 			);
@@ -297,6 +297,7 @@
 			files = (
 				6AA6D55323448FCD0026CFCC /* Topics.storyboard in Resources */,
 				47AB79F82344C94300EACB89 /* Article.storyboard in Resources */,
+				47AB79FE2345EE3600EACB89 /* Loading.storyboard in Resources */,
 				7CB629B52335065900C64618 /* LaunchScreen.storyboard in Resources */,
 				47AB79EA2344BF7600EACB89 /* Main.storyboard in Resources */,
 				7CB629B22335065900C64618 /* Assets.xcassets in Resources */,
@@ -353,16 +354,15 @@
 				47AB79E62344BF7600EACB89 /* AppCoordinator.swift in Sources */,
 				7CB629AD2335065700C64618 /* HomeViewController.swift in Sources */,
 				47AB79F22344C92500EACB89 /* News.swift in Sources */,
-				47AB79EC2344BF7600EACB89 /* CollectionViewController.swift in Sources */,
+				47AB79EC2344BF7600EACB89 /* MainScreenCollectionVC.swift in Sources */,
 				47AB79E72344BF7600EACB89 /* RootCoordinator.swift in Sources */,
 				47AB79E92344BF7600EACB89 /* CellContainingTableVC.swift in Sources */,
 				47AB79DA2344BF2700EACB89 /* AppDelegate.swift in Sources */,
-				47AB79DB2344BF2700EACB89 /* SceneDelegate.swift in Sources */,
 				7CE5F9892339ED9E001E03B0 /* ImageView.swift in Sources */,
-				6AA6D55123448FC10026CFCC /* TopicsTableViewController.swift in Sources */,
+				6AA6D55123448FC10026CFCC /* TopicsTableVC.swift in Sources */,
 				47AB79E82344BF7600EACB89 /* NewsCell.swift in Sources */,
 				47AB79F92344C94300EACB89 /* PageContentViewController.swift in Sources */,
-				47AB79EB2344BF7600EACB89 /* TableViewController.swift in Sources */,
+				47AB79EB2344BF7600EACB89 /* MainLabelsTableVC.swift in Sources */,
 				47AB79F32344C92600EACB89 /* Article.swift in Sources */,
 				47AB79FA2344C94300EACB89 /* PageViewController.swift in Sources */,
 			);
@@ -512,17 +512,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F62X9247PK;
+				DEVELOPMENT_TEAM = 4578DLMZN6;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tyzhai.NewsKit-iOS-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dmytrolopushanskyy.NewsKit-iOS-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -532,17 +532,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F62X9247PK;
+				DEVELOPMENT_TEAM = 4578DLMZN6;
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.tyzhai.NewsKit-iOS-App";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.dmytrolopushanskyy.NewsKit-iOS-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

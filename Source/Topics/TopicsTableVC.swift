@@ -14,7 +14,7 @@ struct CellData {
     var selected: Bool = false
 }
 
-class TopicsTableViewController: UITableViewController {
+class TopicsTableVC: UITableViewController {
     var categories: [CellData] = [CellData(name: "Політика", image: UIImage(named: "politics")),
                                 CellData(name: "Медицина", image: UIImage(named: "medicine")),
                                 CellData(name: "Програмування", image: UIImage(named: "programing")),
@@ -32,6 +32,7 @@ class TopicsTableViewController: UITableViewController {
                                 CellData(name: "Поліція", image: UIImage(named: "police")),
                                 CellData(name: "Культура", image: UIImage(named: "culture")),
                                 CellData(name: "Соціум", image: UIImage(named: "society"))]
+    var selectedOptions: [Int] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +62,14 @@ class TopicsTableViewController: UITableViewController {
         cell.imageView?.image = categories[indexPath.row].image
         if categories[indexPath.row].selected {
             cell.accessoryType = .checkmark
+            selectedOptions.append(indexPath.row)
+        }
+        if selectedOptions.contains(indexPath.row) {
+            categories[indexPath.row].selected = true
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+            selectedOptions = selectedOptions.filter { $0 != indexPath.row }
         }
         return cell
     }
@@ -73,6 +82,7 @@ class TopicsTableViewController: UITableViewController {
         if categories[indexPath.row].selected {
             cell?.accessoryType = .none
             categories[indexPath.row].selected = false
+            selectedOptions = selectedOptions.filter { $0 != indexPath.row }
         } else {
             cell?.accessoryType = .checkmark
 
@@ -82,8 +92,8 @@ class TopicsTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 30
-
     }
+    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return "Categories"
     }

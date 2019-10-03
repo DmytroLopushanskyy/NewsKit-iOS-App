@@ -9,9 +9,61 @@
 import UIKit
 
 class NewsCell: UICollectionViewCell {
+    let screenwidth = UIScreen.main.bounds.width
 
-    func configureCell(collectionView: CollectionViewController) {
-        self.backgroundColor = .blue
+    func configureCell(collectionView: MainScreenCollectionVC, article: Article) {
+        self.backgroundColor = .white
+        print(article)
+        let imageViewContainer = UIView()
+        self.contentView.addSubview(imageViewContainer)
+
+        imageViewContainer.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        imageViewContainer.translatesAutoresizingMaskIntoConstraints = false
+        imageViewContainer.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+        imageViewContainer.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
+        imageViewContainer.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
+
+        let textViewContainer = UIView()
+        self.contentView.addSubview(textViewContainer)
+        textViewContainer.heightAnchor.constraint(equalToConstant: 250).isActive = true
+        textViewContainer.translatesAutoresizingMaskIntoConstraints = false
+        textViewContainer.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
+        textViewContainer.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
+        textViewContainer.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 250).isActive = true
+        textViewContainer.heightAnchor.constraint(equalToConstant: 80).isActive = true
+
+        let imageView = UIImageView()
+        imageView.downloaded(from: article.image, contentMode: .scaleToFill)
+        imageViewContainer.addSubview(imageView)
+        imageViewContainer.stretchToSuperview(imageView)
+
+        let imageView2 = UIImageView()
+        imageView2.downloaded(from: article.image, contentMode: .scaleAspectFit)
+        imageViewContainer.addSubview(imageView2)
+        imageViewContainer.stretchToSuperview(imageView2)
+
+        let label = UILabel()
+        label.text = article.title
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.numberOfLines = 3
+        label.font = .systemFont(ofSize: 20, weight: .medium)
+        textViewContainer.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.widthAnchor.constraint(equalToConstant: screenwidth-20).isActive = true
+        label.leadingAnchor.constraint(equalTo: textViewContainer.leadingAnchor, constant: 10).isActive = true
+        label.topAnchor.constraint(equalTo: textViewContainer.topAnchor, constant: 10).isActive = true
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
+        label.centerYAnchor.constraint(equalTo: textViewContainer.centerYAnchor).isActive = true
+        self.dropShadow(color: .black, opacity: 1, offSet: CGSize(width: -1, height: 2), radius: 5, scale: true)
+
+
+    }
+    
+    override func prepareForReuse() {
+        self.contentView.subviews.forEach {
+            $0.removeFromSuperview()
+        }
     }
 
     override init(frame: CGRect) {

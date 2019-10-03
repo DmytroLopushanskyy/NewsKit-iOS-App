@@ -12,7 +12,8 @@ private let reuseIdentifier = "Cell"
 private let reuseIdentifierForLabelCell = "LabelCell"
 private let reuseIdentifierForNewsCell = "NewsCell"
 
-class CollectionViewController: UICollectionViewController {
+class MainScreenCollectionVC: UICollectionViewController {
+    var newsList: [Article] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +71,7 @@ class CollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return 15
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -102,7 +103,7 @@ class CollectionViewController: UICollectionViewController {
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierForNewsCell, for: indexPath) as! NewsCell
-            cell.configureCell(collectionView: self)
+            cell.configureCell(collectionView: self, article: newsList[indexPath.row-2])
 
             return cell
         }
@@ -148,7 +149,7 @@ class CollectionViewController: UICollectionViewController {
 
 }
 
-extension CollectionViewController: UICollectionViewDelegateFlowLayout {
+extension MainScreenCollectionVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenwidth = UIScreen.main.bounds.width
 
@@ -158,7 +159,7 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
         case 1:
             return CGSize(width: screenwidth, height: 30)
         default:
-            return CGSize(width: screenwidth, height: 180)
+            return CGSize(width: screenwidth, height: 350)
         }
 
     }

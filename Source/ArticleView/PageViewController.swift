@@ -46,6 +46,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
 
         return viewC
     }
+
     func loadData() {
         let group = DispatchGroup()
         group.enter()

@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="-2092" y="-2320"/>
         </scene>
-        <!--Topics Table View Controller-->
+        <!--Topics TableVC-->
         <scene sceneID="UXp-LY-xt8">
             <objects>
-                <tableViewController storyboardIdentifier="TopicsTableViewController" id="DUw-ta-h1y" customClass="TopicsTableViewController" customModule="NewsKit_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TopicsTableViewController" id="DUw-ta-h1y" customClass="TopicsTableVC" customModule="NewsKit_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Yog-Kv-oJ6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -21,7 +21,7 @@ class RootCoordinator: CoordinatableController {
         navigationController.viewControllers.forEach {
             let navigation = $0 as? UINavigationController
             var controller = navigation?.viewControllers.first as? CoordinatableController
-            controller?.coordinator = AppCoordinator()
+            controller?.coordinator = AppCoordinator(with: navigationController)
         }
 
         window.rootViewController = navigationController

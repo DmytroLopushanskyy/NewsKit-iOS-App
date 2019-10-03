@@ -12,10 +12,10 @@ protocol CoordinatableController {
     var coordinator: AppCoordinator! { get set }
 }
 
-class TableViewController: UITableViewController, CoordinatableController {
+class MainLabelsTableVC: UITableViewController, CoordinatableController {
     var coordinator: AppCoordinator! {
         didSet {
-            coordinator.navigationController = navigationController
+            coordinator.navigationController = navigationController!
             print("hurray")
         }
     }
@@ -31,6 +31,8 @@ class TableViewController: UITableViewController, CoordinatableController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let navController = UINavigationController()
+        coordinator = AppCoordinator(with: navigationController!)
 
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
     }
@@ -88,8 +90,7 @@ class TableViewController: UITableViewController, CoordinatableController {
     // MARK: Table View Delegate
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("prepare")
-        coordinator.presentNewsViewController()
+        coordinator.presentTopicsViewController()
     }
 
 }

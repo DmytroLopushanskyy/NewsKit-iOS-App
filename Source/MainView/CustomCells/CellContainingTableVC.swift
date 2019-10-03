@@ -28,7 +28,7 @@ class CellContainingTableVC: UICollectionViewCell {
         self.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
     }
 
-    func addViewController(collectionView: CollectionViewController) {
+    func addViewController(collectionView: MainScreenCollectionVC) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewC = storyboard.instantiateViewController(withIdentifier: "TableViewController")
         collectionView.addChild(viewC)

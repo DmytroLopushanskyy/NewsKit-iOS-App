@@ -2,15 +2,16 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gsV-lU-DPB">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Collection View Controller-->
+        <!--Main Screen CollectionVC-->
         <scene sceneID="icq-34-ubs">
             <objects>
-                <collectionViewController storyboardIdentifier="CollectionController" id="dTk-HB-Eo9" customClass="CollectionViewController" customModule="NewsKit4" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="CollectionController" id="dTk-HB-Eo9" customClass="MainScreenCollectionVC" customModule="NewsKit_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="hOk-wJ-mxA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="147.82608695652175" y="112.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Main Labels TableVC-->
         <scene sceneID="AWF-90-foe">
             <objects>
-                <tableViewController storyboardIdentifier="TableViewController" id="LoT-3T-R0h" customClass="TableViewController" customModule="NewsKit4" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TableViewController" id="LoT-3T-R0h" customClass="MainLabelsTableVC" customModule="NewsKit_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="B69-3d-ijy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
