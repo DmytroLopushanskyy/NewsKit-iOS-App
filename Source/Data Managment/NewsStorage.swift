@@ -14,6 +14,8 @@ class NewsStorage {
     var news = [ArticleData]()
     
     func sync() {
-        NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "synced")))
+        DispatchQueue.main.async {
+            NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "synced")))
+        }
     }
 }

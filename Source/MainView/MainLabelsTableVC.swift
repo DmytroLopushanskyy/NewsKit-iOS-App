@@ -90,7 +90,12 @@ class MainLabelsTableVC: UITableViewController, CoordinatableController {
     // MARK: Table View Delegate
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator.presentTopicsViewController()
+        switch indexPath.row {
+        case 0:
+            coordinator.presentArticleViewController()
+        default:
+            coordinator.presentTopicsViewController()
+        }
     }
 
 }

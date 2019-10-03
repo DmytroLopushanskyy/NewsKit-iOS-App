@@ -31,7 +31,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         super.viewDidLoad()
 //        self.loadData()
 
-        NewsLoader.shared.loadGlobal(userID: 138918380)
+        Repository.shared.getNews(userID: 138918380)
         NotificationCenter.default.addObserver(self, selector: #selector(dataLoaded), name: NSNotification.Name(rawValue: "synced"), object: nil)
         self.pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         self.pageController.dataSource = self
@@ -48,6 +48,14 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
             self.pageController.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
         }
 
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
     func generateContentViewController(index: Int) -> PageContentViewController {

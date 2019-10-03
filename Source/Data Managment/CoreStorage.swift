@@ -23,6 +23,10 @@ class CoreStorage {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
+    
+    func isEmpty() -> Bool{
+        return self.coreNews.isEmpty
+    }
 
     func getNews() -> Void {
         var news: [ArticleData] = []
@@ -32,7 +36,7 @@ class CoreStorage {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
         for item in self.coreNews {
-            news.append(ArticleData(url: item.url!, title: item.tittle!, description: item.decriptionTextt!, image: item.imageUrl!, keywords: item.keywords!, website: item.sourceUrl!))
+            news.append(ArticleData(url: item.url ?? "", title: item.tittle ?? "", description: item.decriptionTextt ?? "", image: item.imageUrl ?? "", keywords: item.keywords ?? "", website: item.sourceUrl ?? ""))
         }
         NewsStorage.shared.news = news
     }
