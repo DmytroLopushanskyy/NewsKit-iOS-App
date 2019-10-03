@@ -18,10 +18,11 @@ class NewsLoader{
         let dataTask = URLSession.shared.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
             if let d = data, d.count > 0 {
                 let news = try? self.decoder.decode(NewsData.self, from: d)
-                NewsStorage.shared.news = news?.news ?? []
-//                CoreStorage.shared.loadNewArticles(from: NewsStorage.shared.news)
-                NewsStorage.shared.sync()
-                callback?()
+                DispatchQueue.main.async {
+                    NewsStorage.shared.news = news?.news ?? []
+                    CoreStorage.shared.loadNewArticles(from: NewsStorage.shared.news)
+                    callback?()
+                }
             }
         }
         dataTask.priority = 0.9
@@ -29,6 +30,6 @@ class NewsLoader{
     }
     
     func loadLocal(userID: Int){
-        
+        CoreStorage.shared.getNews()
     }
 }

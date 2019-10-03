@@ -11,11 +11,21 @@ import Foundation
 class Repository {
     static let shared = Repository()
 
-    func getNews(callback: ([News]) -> Void) {
-        NewsLoader.shared.loadGlobal(userID: _) {
-
-            let news =  load from base
-            callback(news)
+    func getNews(userID: Int) {
+        let news = NewsStorage.shared.news
+        if !news.isEmpty {
+            print(1)
+            NewsStorage.shared.sync()
+        } else if !CoreStorage.shared.isEmpty() {
+            print(2)
+            NewsLoader.shared.loadLocal(userID: userID)
+            NewsStorage.shared.sync()
+        }else{
+            print(3)
+            NewsLoader.shared.loadGlobal(userID: userID) {
+                NewsStorage.shared.sync()
+            }
         }
+
     }
 }
