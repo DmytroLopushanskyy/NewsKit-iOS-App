@@ -26,9 +26,11 @@ class PageContentViewController: UIViewController {
         if let imageUrl = article?.image {
             let url = URL(string: imageUrl)!
             let image = try? UIImage(data: Data(contentsOf: url))
-            img.image = image
-            img.backgroundColor = UIColor(patternImage: img.image!)
-            view.backgroundColor = UIColor(patternImage: img.image!)
+            if let image = image {
+                img.image = image
+                img.backgroundColor = UIColor(patternImage: image)
+                view.backgroundColor = UIColor(patternImage: image)
+            }
         }
     }
 

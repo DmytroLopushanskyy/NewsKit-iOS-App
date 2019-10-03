@@ -9,7 +9,7 @@
 import UIKit
 
 class PageViewController: UIViewController, UIPageViewControllerDataSource {
-    var newsList: [Article] = []
+    var newsList: [ArticleData] = []
     var pageController: UIPageViewController!
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let index = (viewController as! PageContentViewController).index - 1
@@ -21,6 +21,9 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let index = (viewController as! PageContentViewController).index + 1
+        if index > newsList.count{
+            return nil
+        }
         return generateContentViewController(index: index)
     }
 
@@ -32,8 +35,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         NotificationCenter.default.addObserver(self, selector: #selector(dataLoaded), name: NSNotification.Name(rawValue: "synced"), object: nil)
         self.pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         self.pageController.dataSource = self
-        self.pageController.delegate = self
-
         addChild(pageController)
         view.addSubview(pageController.view)
 
