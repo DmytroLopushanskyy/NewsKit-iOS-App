@@ -35,7 +35,7 @@
                         <sections>
                             <tableViewSection footerTitle="" id="ZNQ-WN-wlE">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Ps0-5v-gab">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="Ps0-5v-gab">
                                         <rect key="frame" x="0.0" y="18" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ps0-5v-gab" id="4Uh-cJ-jAg">
@@ -71,7 +71,7 @@
                             </tableViewSection>
                             <tableViewSection footerTitle="" id="wxc-gs-8lW">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dM3-kO-JAx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="dM3-kO-JAx">
                                         <rect key="frame" x="0.0" y="102" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dM3-kO-JAx" id="Bt6-gH-0p9">
@@ -191,7 +191,7 @@
         <!--Rate This AppVC-->
         <scene sceneID="xTk-s5-drW">
             <objects>
-                <viewController storyboardIdentifier="RateThisAppVC" id="m9j-0T-HxQ" customClass="RateThisAppVC" customModule="NewsKit_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RateThisApp" id="m9j-0T-HxQ" customClass="RateThisAppVC" customModule="NewsKit_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eos-Mu-SV9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
