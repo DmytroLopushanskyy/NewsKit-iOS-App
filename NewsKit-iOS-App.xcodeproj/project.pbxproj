@@ -43,6 +43,7 @@
 		7CBB18AD2346ABDC008485B2 /* sign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CBB18AC2346ABDC008485B2 /* sign.storyboard */; };
 		7CBB18AF2346AC1D008485B2 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBB18AE2346AC1D008485B2 /* SignInViewController.swift */; };
 		7CBB18B12346AC29008485B2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBB18B02346AC29008485B2 /* SignUpViewController.swift */; };
+		7CBB18B423473AD5008485B2 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBB18B323473AD5008485B2 /* Image.swift */; };
 		7CE5F9892339ED9E001E03B0 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE5F9882339ED9E001E03B0 /* ImageView.swift */; };
 		7CFB353F2344DD7000AEC7A2 /* NewsKit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CFB353D2344DD7000AEC7A2 /* NewsKit.xcdatamodeld */; };
 		7CFB359E2345B5E300AEC7A2 /* NewsLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFB359D2345B5E300AEC7A2 /* NewsLoader.swift */; };
@@ -62,7 +63,7 @@
 		47AB79F02344C92500EACB89 /* News (deprecated).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "News (deprecated).swift"; sourceTree = "<group>"; };
 		47AB79F12344C92500EACB89 /* Article (deprecated).swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Article (deprecated).swift"; sourceTree = "<group>"; };
 		47AB79F52344C94300EACB89 /* Article.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Article.storyboard; sourceTree = "<group>"; };
-		47AB79F62344C94300EACB89 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; };
+		47AB79F62344C94300EACB89 /* PageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageContentViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		47AB79F72344C94300EACB89 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		47AB79FD2345EE3600EACB89 /* Loading.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Loading.storyboard; sourceTree = "<group>"; };
 		6AA6D55023448FC10026CFCC /* TopicsTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsTableVC.swift; sourceTree = "<group>"; };
@@ -86,6 +87,7 @@
 		7CBB18AE2346AC1D008485B2 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		7CBB18B02346AC29008485B2 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		7CBB18B22346AFFB008485B2 /* NewsKit-iOS-App.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "NewsKit-iOS-App.entitlements"; sourceTree = "<group>"; };
+		7CBB18B323473AD5008485B2 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		7CE5F9882339ED9E001E03B0 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		7CFB353E2344DD7000AEC7A2 /* NewsKit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsKit.xcdatamodel; sourceTree = "<group>"; };
 		7CFB35992345B49700AEC7A2 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 			children = (
 				47AB79ED2344BF8300EACB89 /* UIView+Ext.swift */,
 				7CE5F9882339ED9E001E03B0 /* ImageView.swift */,
+				7CBB18B323473AD5008485B2 /* Image.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				7C9C7BA723465F7C002D6FBE /* News.swift in Sources */,
 				7CBB18AF2346AC1D008485B2 /* SignInViewController.swift in Sources */,
 				47AB79FA2344C94300EACB89 /* PageViewController.swift in Sources */,
+				7CBB18B423473AD5008485B2 /* Image.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

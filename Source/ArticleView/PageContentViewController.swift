@@ -7,34 +7,79 @@
 //
 
 import UIKit
+import SafariServices
 
-class PageContentViewController: UIViewController {
+class PageContentViewController: UIViewController,SFSafariViewControllerDelegate {
     var index: Int = 0
     var article: ArticleData?
     var result: [ArticleData] = []
     var image: UIImage?
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var closeWindowButton: UIView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var readMoreButton: UIButton!
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var desc: UILabel!
+    @IBAction func readMoreTapped(_ sender: Any) {
+        let safariVC = SFSafariViewController(url: URL(string: article!.url)!)
+        self.present(safariVC, animated: true, completion: nil)
+        safariVC.delegate = self
+    }
+    
+    
+    @IBAction func onCloseButton(_ sender: Any) {
+    }
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let tap = UIGestureRecognizer(target: self, action: #selector(self.closeWindow(_:)))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.closeWindow(_:)))
+        closeWindowButton.addGestureRecognizer(tap)
+//        closeWindowButton.isUserInteractionEnabled = true
+//        NotificationCenter.default.addObserver(self, selector: #selector(windowOrientationChange), name: NSNotification.Name., object: <#T##Any?#>)
         contentView.layer.cornerRadius = 30
+        readMoreButton.layer.cornerRadius = 15
         if let imageUrl = article?.image {
-            let url = URL(string: imageUrl)!
-            self.image = try? UIImage(data: Data(contentsOf: url))
+            if let url = URL(string: imageUrl){
+                
+                DispatchQueue.global().async {
+                    self.image = try? UIImage(data: Data(contentsOf: url))
+                    
+                    DispatchQueue.main.async {
+                        self.img.image = self.image
+                        self.img.backgroundColor = UIColor(patternImage: self.image!.blurEffect())
+
+                    }
+                }
+                
+                
+            }
 
         }
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+    }
+    
+    @objc func closeWindow(_ sender: UITapGestureRecognizer){
+        print("close")
+//        self.navigationController?.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func windowOrientationChange(){
+        
     }
         
     override func viewWillAppear(_ animated: Bool) {
         textLabel.text = article?.title
         desc.text = article?.description
-        if let image = self.image {
-            img.image = image
-            img.backgroundColor = UIColor(patternImage: image)
-            view.backgroundColor = UIColor(patternImage: image)
-        }
     }
 
     /*
