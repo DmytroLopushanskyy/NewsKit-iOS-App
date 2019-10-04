@@ -77,4 +77,11 @@ class AppCoordinator {
         //self.navigationController.present(controller, animated: true, completion: nil)
         self.navigationController.pushViewController(controller, animated: true)
     }
+    
+    func presentSettingsViewController() {
+        let controller = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsSB") as! SettingsVC
+
+        self.navigationController.pushViewController(controller, animated: true)
+    }
+    
 }
