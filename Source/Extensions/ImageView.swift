@@ -28,9 +28,12 @@ extension UIImageView {
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
                 let data = data, error == nil,
-                let image = UIImage(data: data)
+                var image = UIImage(data: data)
                 else { return }
             DispatchQueue.main.async() {
+//                if blur {
+//                    image = image.blurEffect()
+//                }
                 self.image = image
             }
         }.resume()

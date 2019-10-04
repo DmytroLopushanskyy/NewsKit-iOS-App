@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		34C402AD861C2C80A729AF64 /* Pods_NewsKit_iOS_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF1B83970B135F585AE92F03 /* Pods_NewsKit_iOS_App.framework */; };
 		47AB79DA2344BF2700EACB89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79D82344BF2700EACB89 /* AppDelegate.swift */; };
 		47AB79E62344BF7600EACB89 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79DE2344BF7600EACB89 /* AppCoordinator.swift */; };
 		47AB79E72344BF7600EACB89 /* RootCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47AB79DF2344BF7600EACB89 /* RootCoordinator.swift */; };
@@ -101,7 +100,6 @@
 		7CFB359D2345B5E300AEC7A2 /* NewsLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLoader.swift; sourceTree = "<group>"; };
 		7CFB359F2345B5ED00AEC7A2 /* NewsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsStorage.swift; sourceTree = "<group>"; };
 		A1F211BA4756641479D10FB0 /* Pods-NewsKit-iOS-App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsKit-iOS-App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsKit-iOS-App/Pods-NewsKit-iOS-App.debug.xcconfig"; sourceTree = "<group>"; };
-		CF1B83970B135F585AE92F03 /* Pods_NewsKit_iOS_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsKit_iOS_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34C402AD861C2C80A729AF64 /* Pods_NewsKit_iOS_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +116,6 @@
 		2FC1C5BA4C6F52A237C0BF90 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CF1B83970B135F585AE92F03 /* Pods_NewsKit_iOS_App.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -53,7 +53,6 @@ class PageContentViewController: UIViewController,SFSafariViewControllerDelegate
                     DispatchQueue.main.async {
                         self.img.image = self.image
                         self.img.backgroundColor = UIColor(patternImage: self.image!.blurEffect())
-
                     }
                 }
                 

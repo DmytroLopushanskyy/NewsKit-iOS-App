@@ -67,16 +67,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         return viewC
     }
 
-    func loadData() {
-        let group = DispatchGroup()
-        group.enter()
-        let news = News()
-        news.load(url: URL(string: "http://newskit.pythonanywhere.com/api/getlastnews?user=138918380")!) { (result, _) in
-//            self.newsList = result
-            group.leave()
-        }
-        group.wait()
-    }
 
     /*
     // MARK: - Navigation

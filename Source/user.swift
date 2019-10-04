@@ -36,7 +36,8 @@ class User {
     
     var name = ""
     var username = ""
-    var newsToSend = [String]()
+    var newsToSendID = [String]()
+    var newsToSendArticle = [ArticleData]()
     var topics = [String]()
     var notificationTime = "12:00"
     var websites = [String]()

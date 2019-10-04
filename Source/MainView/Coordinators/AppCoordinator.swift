@@ -78,6 +78,7 @@ class AppCoordinator {
             print("data loaded!")
             let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CollectionController") as! MainScreenCollectionVC
             controller.newsList = NewsStorage.shared.news
+            print(controller.newsList)
             self.navigationController.pushViewController(controller, animated: true)
             self.navigationController.dismiss(animated: true, completion: nil)
         }

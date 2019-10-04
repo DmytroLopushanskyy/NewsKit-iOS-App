@@ -87,7 +87,9 @@ class MainLabelsTableVC: UITableViewController, CoordinatableController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            coordinator.presentArticleViewController()
+            if User.shared.newsToSendArticle.count != 0 {
+                coordinator.presentArticleViewController()
+            }
         case 1:
             coordinator.presentSitesViewController()
         default:

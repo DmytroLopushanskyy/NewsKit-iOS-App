@@ -13,7 +13,8 @@ class NewsLoader{
     private let decoder = JSONDecoder()
     
     func loadGlobal(callback: (() -> Void)? = nil){
-        let urlString = "http://newskit.pythonanywhere.com/api/getlastnews?user=\(User.shared.username)"
+        let urlString = "http://newskit.pythonanywhere.com/api/getlastnews?username=\(User.shared.username)"
+        print(urlString)
         let url = URL(string: urlString)!
         let dataTask = URLSession.shared.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
             if let d = data, d.count > 0 {

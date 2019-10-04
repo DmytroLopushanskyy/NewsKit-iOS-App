@@ -19,6 +19,7 @@ class MainScreenCollectionVC: UICollectionViewController,
     @IBAction func settingsTapped(_ sender: Any) {
         coordinator.presentSettingsViewController()
     }
+    
     var newsList: [ArticleData] = []
     
     @objc func dataLoaded(){
@@ -83,7 +84,11 @@ class MainScreenCollectionVC: UICollectionViewController,
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        if newsList.count != 0 {
+            return newsList.count + 2
+        } else {
+            return 3
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -115,7 +120,11 @@ class MainScreenCollectionVC: UICollectionViewController,
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifierForNewsCell, for: indexPath) as! NewsCell
-            cell.configureCell(collectionView: self, article: newsList[indexPath.row-2])
+            if newsList.isEmpty {
+                cell.nothingToShow()
+            } else {
+                cell.configureCell(collectionView: self, article: newsList[indexPath.row-2])
+            }
 
             return cell
         }

@@ -43,7 +43,7 @@ class APIhandler {
                         User.shared.websites = websites.components(separatedBy: ", ")
                     }
                     if let newsToSend = json["newsToSend"] as? String {
-                        User.shared.newsToSend = newsToSend.components(separatedBy: ", ")
+                        User.shared.newsToSendID = newsToSend.components(separatedBy: ", ")
                     }
                 }
                 

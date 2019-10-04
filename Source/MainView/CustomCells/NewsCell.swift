@@ -34,6 +34,7 @@ class NewsCell: UICollectionViewCell {
 
         let imageView = UIImageView()
         imageView.downloaded(from: article.image, contentMode: .scaleToFill)
+        imageView.blur()
         imageViewContainer.addSubview(imageView)
         imageViewContainer.stretchToSuperview(imageView)
 
@@ -56,8 +57,22 @@ class NewsCell: UICollectionViewCell {
         label.textAlignment = .center
         label.centerYAnchor.constraint(equalTo: textViewContainer.centerYAnchor).isActive = true
         self.dropShadow(color: .black, opacity: 1, offSet: CGSize(width: -1, height: 2), radius: 5, scale: true)
-
-
+    }
+    
+    func nothingToShow() {
+        let label = UILabel()
+        label.text = "Статей за вашими темами та сайтами не знайдено. \n Змініть ці налаштування вище та оновіть сторінку свайпом вниз."
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.numberOfLines = 5
+        label.font = .systemFont(ofSize: 15, weight: .regular)
+        self.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.widthAnchor.constraint(equalToConstant: screenwidth-20).isActive = true
+        label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+        label.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        label.adjustsFontSizeToFitWidth = true
+        label.textAlignment = .center
+        label.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
     
     override func prepareForReuse() {
