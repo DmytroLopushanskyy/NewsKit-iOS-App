@@ -52,6 +52,7 @@ class CoreStorage {
     func insert(from newsData: [ArticleData]) {
         for articleData in newsData {
             let article = Artticle(entity: Artticle.entity(), insertInto: context)
+            article.url = articleData.url
             article.decriptionTextt = articleData.description
             article.imageUrl = articleData.image
             article.keywords = articleData.keywords
