@@ -24,6 +24,7 @@ class MainScreenCollectionVC: UICollectionViewController,
     @IBAction func settingsTapped(_ sender: Any) {
         coordinator.presentSettingsViewController()
     }
+    
     var newsList: [Article] = []
 
     override func viewDidLoad() {
