@@ -35,6 +35,7 @@ class MainLabelsTableVC: UITableViewController, CoordinatableController {
         coordinator = AppCoordinator(with: navigationController!)
 
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
+
     }
 
     // MARK: - Table view data source
@@ -93,6 +94,8 @@ class MainLabelsTableVC: UITableViewController, CoordinatableController {
         switch indexPath.row {
         case 0:
             coordinator.presentArticleViewController()
+        case 1:
+            coordinator.presentSitesViewController()
         default:
             coordinator.presentTopicsViewController()
         }

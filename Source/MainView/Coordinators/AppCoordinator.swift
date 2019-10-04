@@ -90,4 +90,15 @@ class AppCoordinator {
         self.navigationController.pushViewController(controller, animated: true)
     }
     
+    func presentSitesViewController() {
+        let controller = UIStoryboard(name: "Sites", bundle: nil).instantiateViewController(withIdentifier: "SitesVC") as! SitesVC
+        
+        self.navigationController.pushViewController(controller, animated: true)
+    }
+    
+    func presentRateThisAppViewController() {
+        let controller = UIStoryboard(name: "RateThisApp", bundle: nil).instantiateViewController(withIdentifier: "RateThisAppVC") as! RateThisAppVC
+        
+        self.navigationController.pushViewController(controller, animated: true)
+    }
 }
