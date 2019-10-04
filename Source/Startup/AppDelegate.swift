@@ -50,9 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController()
-        appCoordinator = AppCoordinator(with: window?.rootViewController as! UINavigationController)
-        appCoordinator?.start()
+        
+        AppCoordinator.shared.window = window
+        
+        AppCoordinator.shared.start()
         window?.makeKeyAndVisible()
         return true
     }

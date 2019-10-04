@@ -14,21 +14,22 @@ private let reuseIdentifierForNewsCell = "NewsCell"
 
 class MainScreenCollectionVC: UICollectionViewController,
         CoordinatableController {
-    var coordinator: AppCoordinator! {
-        didSet {
-            coordinator.navigationController = navigationController!
-            print("hurray")
-        }
-    }
+    var coordinator: AppCoordinator!
     
     @IBAction func settingsTapped(_ sender: Any) {
         coordinator.presentSettingsViewController()
     }
-    var newsList: [Article] = []
+    var newsList: [ArticleData] = []
+    
+    @objc func dataLoaded(){
+        newsList = NewsStorage.shared.news
+        self.collectionView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        coordinator = AppCoordinator(with: navigationController!)
+        coordinator = AppCoordinator.shared
+        NotificationCenter.default.addObserver(self, selector: #selector(dataLoaded), name: NSNotification.Name(rawValue: "synced"), object: nil)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -45,7 +46,7 @@ class MainScreenCollectionVC: UICollectionViewController,
         self.navigationController?.navigationBar.setBackgroundImage(UIColor.white.image(), for: .default)
         self.navigationController?.navigationBar.tintColor = UIColor(red: 181.0/255, green: 181.0/255, blue: 181.0/255, alpha: 1)
         self.navigationController?.navigationBar.isTranslucent = false
-        self.navigationItem.title = "John Doe"
+        self.navigationItem.title = User.shared.name
         self.navigationController?.navigationBar.shadowImage = UIColor.white.image()
     }
 

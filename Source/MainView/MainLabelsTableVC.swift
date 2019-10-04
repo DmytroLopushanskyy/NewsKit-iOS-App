@@ -13,12 +13,7 @@ protocol CoordinatableController {
 }
 
 class MainLabelsTableVC: UITableViewController, CoordinatableController {
-    var coordinator: AppCoordinator! {
-        didSet {
-            coordinator.navigationController = navigationController!
-            print("hurray")
-        }
-    }
+    var coordinator: AppCoordinator!
 
     var labeLTitles = ["News", "Web Sources", "Keywords & Topics"]
     var imageNames = ["news2.png", "web2.png", "keywords2.png" ]
@@ -31,8 +26,7 @@ class MainLabelsTableVC: UITableViewController, CoordinatableController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        let navController = UINavigationController()
-        coordinator = AppCoordinator(with: navigationController!)
+        coordinator = AppCoordinator.shared
 
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
     }

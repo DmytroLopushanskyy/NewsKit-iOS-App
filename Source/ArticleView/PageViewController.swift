@@ -31,7 +31,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         super.viewDidLoad()
 //        self.loadData()
 
-        Repository.shared.getNews(userID: 138918380)
+        Repository.shared.getNews()
         NotificationCenter.default.addObserver(self, selector: #selector(dataLoaded), name: NSNotification.Name(rawValue: "synced"), object: nil)
         self.pageController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         self.pageController.dataSource = self

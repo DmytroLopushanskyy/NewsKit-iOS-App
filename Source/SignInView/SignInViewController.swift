@@ -9,13 +9,27 @@
 import UIKit
 
 class SignInViewController: UIViewController {
-
+    @IBOutlet weak var login: UITextField!
+    @IBOutlet weak var password: UITextField!
+    
+    @IBAction func signInPressed(_ sender: Any) {
+        print("pressed")
+        if login?.text == nil || password?.text == nil {
+            print("1")
+            return
+        } else {
+            AppCoordinator.shared.presentLoading()
+            print("2")
+            APIhandler.shared.signIn(username: login.text!, password: password.text!) {
+                print("signin callback")
+            }
+        }
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation
@@ -26,5 +40,4 @@ class SignInViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

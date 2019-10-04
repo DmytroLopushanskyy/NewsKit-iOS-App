@@ -22,23 +22,39 @@ import UIKit
 class Coordinator { }
 
 class AppCoordinator {
-    var navigationController: UINavigationController
-    var childCoordinators = [Coordinator]()
-
-    init(with navigationController: UINavigationController) {
-        self.navigationController = navigationController
+    static let shared = AppCoordinator()
+    
+    private(set) var navigationController = UINavigationController()
+    var window: UIWindow! {
+        didSet {
+            window.rootViewController = navigationController
+        }
     }
+    //var tabBarController: UITabBarController
+
+//    init(with navigationController: UINavigationController) {
+//        self.navigationController = navigationController
+//    }
+//    init(with tabBarController: UITabBarController) {
+//        self.tabBarController = tabBarController
+//    }
 
     deinit {
         print("deallocing \(self)")
     }
 
     func start() {
+        var logged_in = false
+        if !logged_in {
+            
+        }
+        Repository.shared.getNews()
         //login or register
         //show loading Storyboard
         //data loading
         //when finished:
-        presentMainViewController()
+        presentLogin()
+       //presentMainViewController()
         
         //presentArticleViewController()
     }
@@ -54,21 +70,21 @@ class AppCoordinator {
     }
 
     func presentMainViewController() {
-        let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CollectionController") as! MainScreenCollectionVC
+        print("presenting main")
+        //window?.rootViewController = AppCoordinator.shared.navigationController
         
-        let group = DispatchGroup()
-        group.enter()
-        let news = News()
-        var newsList: [Article] = []
-        news.load(url: URL(string: "http://newskit.pythonanywhere.com/api/getlastnews?user=138918380")!) { (result, _) in
-            newsList = result
-            group.leave()
+ 
+        Repository.shared.getNews()
+        NotificationCenter.default.addObserver(self, selector: #selector(dataLoaded2), name: NSNotification.Name(rawValue: "synced"), object: nil)
+    }
+    @objc func dataLoaded2() {
+        DispatchQueue.main.async {
+            print("data loaded!")
+            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CollectionController") as! MainScreenCollectionVC
+            controller.newsList = NewsStorage.shared.news
+            self.navigationController.pushViewController(controller, animated: true)
+            self.navigationController.dismiss(animated: true, completion: nil)
         }
-        group.wait()
-        
-        controller.newsList = newsList
-
-        self.navigationController.pushViewController(controller, animated: true)
     }
 
     func presentArticleViewController() {
@@ -88,6 +104,20 @@ class AppCoordinator {
         let controller = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "AboutThisAppVC") as! AboutThisAppVC
 
         self.navigationController.pushViewController(controller, animated: true)
+    }
+    
+    func presentLogin() {
+        let controller = UIStoryboard(name: "sign", bundle: nil).instantiateViewController(withIdentifier: "TabBarVC") as! UITabBarController
+
+        self.navigationController.present(controller, animated: true, completion: nil)
+        window?.rootViewController = controller
+    }
+    
+    func presentLoading() {
+        let controller = UIStoryboard(name: "Loading", bundle: nil).instantiateViewController(withIdentifier: "Loading")
+        controller.modalPresentationStyle = .fullScreen
+        window?.rootViewController = AppCoordinator.shared.navigationController
+        self.navigationController.present(controller, animated: true, completion: nil)
     }
     
 }

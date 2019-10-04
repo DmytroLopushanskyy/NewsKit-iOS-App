@@ -12,8 +12,8 @@ class NewsLoader{
     static let shared = NewsLoader()
     private let decoder = JSONDecoder()
     
-    func loadGlobal(userID: Int, callback: (() -> Void)? = nil){
-        let urlString = "http://newskit.pythonanywhere.com/api/getlastnews?user=\(userID)"
+    func loadGlobal(callback: (() -> Void)? = nil){
+        let urlString = "http://newskit.pythonanywhere.com/api/getlastnews?user=\(User.shared.username)"
         let url = URL(string: urlString)!
         let dataTask = URLSession.shared.dataTask(with: url) { (data: Data?, response: URLResponse?, error: Error?) in
             if let d = data, d.count > 0 {
@@ -29,7 +29,7 @@ class NewsLoader{
         dataTask.resume()
     }
     
-    func loadLocal(userID: Int){
+    func loadLocal(){
         CoreStorage.shared.getNews()
     }
 }

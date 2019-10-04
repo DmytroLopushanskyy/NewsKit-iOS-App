@@ -18,11 +18,7 @@ func dateStringWith(strFormat: String) -> String {
     }}
 
 class SettingsVC: UITableViewController, UITextFieldDelegate {
-    var coordinator: AppCoordinator! {
-        didSet {
-            coordinator.navigationController = navigationController!
-        }
-    }
+    var coordinator: AppCoordinator!
     
     @IBOutlet weak var inputTimeField: UITextField!
     private var datePicker:  UIDatePicker?
@@ -43,9 +39,7 @@ class SettingsVC: UITableViewController, UITextFieldDelegate {
         
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(SettingsVC.viewTapped(gestureRecognizer:)))
         
-        
-        let navController = UINavigationController()
-        coordinator = AppCoordinator(with: navController)
+        coordinator = AppCoordinator.shared
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         view.addGestureRecognizer(self.tapGesture!)

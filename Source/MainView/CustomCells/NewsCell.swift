@@ -11,7 +11,7 @@ import UIKit
 class NewsCell: UICollectionViewCell {
     let screenwidth = UIScreen.main.bounds.width
 
-    func configureCell(collectionView: MainScreenCollectionVC, article: Article) {
+    func configureCell(collectionView: MainScreenCollectionVC, article: ArticleData) {
         self.backgroundColor = .white
         print(article)
         let imageViewContainer = UIView()

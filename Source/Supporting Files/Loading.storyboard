@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,42 +11,39 @@
         <!--View Controller-->
         <scene sceneID="8bh-hT-UNK">
             <objects>
-                <viewController id="WeM-xP-2at" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="o86-rY-pKk">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zo0-xi-EHY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="Loading" id="WeM-xP-2at" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8vv-Mt-Cw8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yl1-no-6FL">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="NewsKitLogoSmall" translatesAutoresizingMaskIntoConstraints="NO" id="bUb-q8-7od">
-                                        <rect key="frame" x="23" y="350" width="368" height="196"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Your data is being loaded..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MB9-zE-32L">
-                                        <rect key="frame" x="63.5" y="517" width="287" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
-                                        <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.86274509803921573" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewsKitLogoSmall" translatesAutoresizingMaskIntoConstraints="NO" id="BJh-DP-cNQ">
+                                <rect key="frame" x="20" y="348" width="374" height="200"/>
                                 <constraints>
-                                    <constraint firstItem="MB9-zE-32L" firstAttribute="centerX" secondItem="yl1-no-6FL" secondAttribute="centerX" id="Hvf-pF-Z67"/>
-                                    <constraint firstItem="MB9-zE-32L" firstAttribute="top" secondItem="bUb-q8-7od" secondAttribute="top" id="Txc-qd-UzX"/>
+                                    <constraint firstAttribute="height" constant="200" id="88a-2J-syX"/>
                                 </constraints>
-                            </view>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your data is being loaded..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4k-0M-uNx">
+                                <rect key="frame" x="63.5" y="553.5" width="287" height="29"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="24"/>
+                                <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.86274509799999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="yl1-no-6FL" firstAttribute="top" secondItem="o86-rY-pKk" secondAttribute="top" id="1z1-PI-a83"/>
-                            <constraint firstItem="yl1-no-6FL" firstAttribute="trailing" secondItem="zcs-NM-K08" secondAttribute="trailing" id="3gK-vi-10q"/>
-                            <constraint firstItem="yl1-no-6FL" firstAttribute="leading" secondItem="zcs-NM-K08" secondAttribute="leading" id="Eid-zZ-eSY"/>
-                            <constraint firstAttribute="bottom" secondItem="yl1-no-6FL" secondAttribute="bottom" id="UWM-nY-duc"/>
+                            <constraint firstItem="r4k-0M-uNx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8vv-Mt-Cw8" secondAttribute="leading" constant="20" id="4Yl-UN-axH"/>
+                            <constraint firstItem="BJh-DP-cNQ" firstAttribute="centerX" secondItem="8vv-Mt-Cw8" secondAttribute="centerX" id="8xV-G7-GSI"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="r4k-0M-uNx" secondAttribute="trailing" constant="20" id="Bme-ZF-a8Q"/>
+                            <constraint firstItem="r4k-0M-uNx" firstAttribute="top" secondItem="BJh-DP-cNQ" secondAttribute="top" constant="205.5" id="ESS-Ol-p5V"/>
+                            <constraint firstItem="BJh-DP-cNQ" firstAttribute="centerY" secondItem="8vv-Mt-Cw8" secondAttribute="centerY" id="GgQ-4m-uQ7"/>
+                            <constraint firstItem="NmK-Kk-qNz" firstAttribute="trailing" secondItem="BJh-DP-cNQ" secondAttribute="trailing" constant="20" id="K3b-yp-hBE"/>
+                            <constraint firstItem="BJh-DP-cNQ" firstAttribute="leading" secondItem="NmK-Kk-qNz" secondAttribute="leading" constant="20" id="cz9-Y4-pho"/>
+                            <constraint firstItem="r4k-0M-uNx" firstAttribute="centerX" secondItem="8vv-Mt-Cw8" secondAttribute="centerX" id="tcE-rx-DsZ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="zcs-NM-K08"/>
+                        <viewLayoutGuide key="safeArea" id="NmK-Kk-qNz"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zo0-xi-EHY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="99.776785714285708"/>
         </scene>

@@ -8,26 +8,39 @@
 
 import UIKit
 
-class RootCoordinator: CoordinatableController {
-    var coordinator: AppCoordinator!
-    let window: UIWindow
-
-    init(_ window: UIWindow) {
-        self.window = window
-
-        let navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-
-        _ = navigationController.view
-        navigationController.viewControllers.forEach {
-            let navigation = $0 as? UINavigationController
-            var controller = navigation?.viewControllers.first as? CoordinatableController
-            controller?.coordinator = AppCoordinator(with: navigationController)
-        }
-
-        window.rootViewController = navigationController
-    }
-
-    func present() {
-        window.makeKeyAndVisible()
-    }
-}
+//class RootCoordinator: CoordinatableController {
+//    var coordinator: AppCoordinator!
+//    var window: UIWindow
+//
+//    init(_ window: UIWindow) {
+//        self.window = window
+//        
+//        let navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+//
+//        _ = navigationController.view
+//        navigationController.viewControllers.forEach {
+//            let navigation = $0 as? UINavigationController
+//            var controller = navigation?.viewControllers.first as? CoordinatableController
+//            controller?.coordinator = AppCoordinator.shared
+//        }
+//
+//        window.rootViewController = navigationController
+//        
+//    }
+//
+//    func present() {
+//        window.makeKeyAndVisible()
+//    }
+//    
+////    func setNavigationVCToRootVC(){
+////        let navigationController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+////
+////        _ = navigationController.view
+////        navigationController.viewControllers.forEach {
+////            let navigation = $0 as? UINavigationController
+////            var controller = navigation?.viewControllers.first as? CoordinatableController
+////            controller?.coordinator = AppCoordinator(with: navigationController)
+////        }
+////        window.rootViewController = navigationController
+////    }
+//}
