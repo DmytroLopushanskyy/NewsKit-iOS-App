@@ -12,12 +12,23 @@ private let reuseIdentifier = "Cell"
 private let reuseIdentifierForLabelCell = "LabelCell"
 private let reuseIdentifierForNewsCell = "NewsCell"
 
-class MainScreenCollectionVC: UICollectionViewController {
+class MainScreenCollectionVC: UICollectionViewController,
+        CoordinatableController {
+    var coordinator: AppCoordinator! {
+        didSet {
+            coordinator.navigationController = navigationController!
+            print("hurray")
+        }
+    }
+    
+    @IBAction func settingsTapped(_ sender: Any) {
+        coordinator.presentSettingsViewController()
+    }
     var newsList: [Article] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        coordinator = AppCoordinator(with: navigationController!)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
