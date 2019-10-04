@@ -10,22 +10,25 @@ import Foundation
 
 class Repository {
     static let shared = Repository()
-
     func getNews() {
         let news = NewsStorage.shared.news
         if !news.isEmpty {
-            print(1)
+            print("Data from current session")
             NewsStorage.shared.sync()
         } else if !CoreStorage.shared.isEmpty() {
-            print(2)
+            print("Data from Core Storage")
             NewsLoader.shared.loadLocal()
             NewsStorage.shared.sync()
         }else{
-            print(3)
+            print("Data from API")
             NewsLoader.shared.loadGlobal() {
                 NewsStorage.shared.sync()
             }
         }
 
     }
+}
+
+protocol RepositoryDelegate: Repository {
+    func didDataLoaded()
 }

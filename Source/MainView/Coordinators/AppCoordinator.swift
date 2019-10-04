@@ -44,10 +44,6 @@ class AppCoordinator {
     }
 
     func start() {
-        var logged_in = false
-        if !logged_in {
-            
-        }
         Repository.shared.getNews()
         //login or register
         //show loading Storyboard
@@ -106,6 +102,17 @@ class AppCoordinator {
         self.navigationController.pushViewController(controller, animated: true)
     }
     
+    func presentSitesViewController() {
+        let controller = UIStoryboard(name: "Sites", bundle: nil).instantiateViewController(withIdentifier: "SitesVC") as! SitesVC
+        
+        self.navigationController.pushViewController(controller, animated: true)
+    }
+    
+    func presentRateThisAppViewController() {
+        let controller = UIStoryboard(name: "RateThisApp", bundle: nil).instantiateViewController(withIdentifier: "RateThisAppVC") as! RateThisAppVC
+        
+        self.navigationController.pushViewController(controller, animated: true)
+    }
     func presentLogin() {
         let controller = UIStoryboard(name: "sign", bundle: nil).instantiateViewController(withIdentifier: "TabBarVC") as! UITabBarController
 

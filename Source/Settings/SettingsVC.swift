@@ -15,7 +15,8 @@ func dateStringWith(strFormat: String) -> String {
        dateFormatter.locale = Calendar.current.locale
        dateFormatter.dateFormat = strFormat
        return dateFormatter.string(from: self)
-    }}
+    }
+}
 
 class SettingsVC: UITableViewController, UITextFieldDelegate {
     var coordinator: AppCoordinator!
@@ -47,8 +48,6 @@ class SettingsVC: UITableViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         view.removeGestureRecognizer(self.tapGesture!)
     }
-    
-    
 
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -56,14 +55,32 @@ class SettingsVC: UITableViewController, UITextFieldDelegate {
     
     @objc func dateChanged(dataPicker:UIDatePicker) {
         let date = self.datePicker?.date
-//        let strTime = date?.dateStringWith(strFormat: "hh:mm a")
         let strTime = date?.dateStringWith(strFormat: "HH:mm")
 //        print(strTime)
         inputTimeField.text = String(strTime!)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        coordinator.presentAboutThisAppVC()
+        switch  indexPath.section{
+        case 0:
+            return
+        case 1:
+            switch indexPath.row {
+            case 0:
+                return
+            case 1:
+                coordinator.presentAboutThisAppVC()
+            case 2:
+                coordinator.presentAboutThisAppVC()
+
+            default:
+                return
+            }
+        default:
+            return
+        }
+        
+        
     }
 }
 
