@@ -23,6 +23,7 @@ class Coordinator { }
 
 class AppCoordinator {
     static let shared = AppCoordinator()
+    var appLoaded = false
     
     private(set) var navigationController = UINavigationController()
     var window: UIWindow! {
@@ -44,7 +45,7 @@ class AppCoordinator {
     }
 
     func start() {
-        Repository.shared.getNews()
+        Repository.shared.getNews(forceReloadDataFromAPI: true)
         //login or register
         //show loading Storyboard
         //data loading
@@ -72,15 +73,25 @@ class AppCoordinator {
  
         Repository.shared.getNews()
         NotificationCenter.default.addObserver(self, selector: #selector(dataLoaded2), name: NSNotification.Name(rawValue: "synced"), object: nil)
+        
     }
     @objc func dataLoaded2() {
         DispatchQueue.main.async {
             print("data loaded!")
-            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CollectionController") as! MainScreenCollectionVC
-            controller.newsList = NewsStorage.shared.news
-            print(controller.newsList)
-            self.navigationController.pushViewController(controller, animated: true)
-            self.navigationController.dismiss(animated: true, completion: nil)
+            if !self.appLoaded {
+                if User.shared.username == "" {
+                    print("False Credentials")
+                    self.navigationController.dismiss(animated: true, completion: nil)
+                    self.presentLogin()
+                    return
+                }
+                let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CollectionController") as! MainScreenCollectionVC
+                controller.newsList = NewsStorage.shared.news
+                self.navigationController.pushViewController(controller, animated: true)
+
+                self.navigationController.dismiss(animated: true, completion: nil)
+                self.appLoaded = true
+            }
         }
     }
 

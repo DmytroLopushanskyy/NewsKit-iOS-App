@@ -25,7 +25,7 @@ class NewsCell: UICollectionViewCell {
 
         let textViewContainer = UIView()
         self.contentView.addSubview(textViewContainer)
-        textViewContainer.heightAnchor.constraint(equalToConstant: 250).isActive = true
+//        textViewContainer.heightAnchor.constraint(equalToConstant: 250).isActive = true
         textViewContainer.translatesAutoresizingMaskIntoConstraints = false
         textViewContainer.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
         textViewContainer.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true

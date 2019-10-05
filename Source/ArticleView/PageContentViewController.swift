@@ -49,11 +49,16 @@ class PageContentViewController: UIViewController,SFSafariViewControllerDelegate
                 
                 DispatchQueue.global().async {
                     self.image = try? UIImage(data: Data(contentsOf: url))
-                    
-                    DispatchQueue.main.async {
-                        self.img.image = self.image
-                        self.img.backgroundColor = UIColor(patternImage: self.image!.blurEffect())
+                    if let image = self.image {
+                        DispatchQueue.main.async {
+                            self.img.image = self.image
+                            self.img.backgroundColor = UIColor(patternImage: self.image!.blurEffect())
+                        }
+                    } else {
+                        
                     }
+                    
+                    
                 }
                 
                 
