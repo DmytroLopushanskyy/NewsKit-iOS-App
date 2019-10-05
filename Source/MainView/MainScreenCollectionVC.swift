@@ -15,6 +15,7 @@ private let reuseIdentifierForNewsCell = "NewsCell"
 class MainScreenCollectionVC: UICollectionViewController,
         CoordinatableController {
     var coordinator: AppCoordinator!
+    var refresher: UIRefreshControl!
     
     @IBAction func settingsTapped(_ sender: Any) {
         coordinator.presentSettingsViewController()
@@ -25,9 +26,24 @@ class MainScreenCollectionVC: UICollectionViewController,
     @objc func dataLoaded(){
         newsList = NewsStorage.shared.news
         self.collectionView.reloadData()
+        self.refresher.endRefreshing()
+    }
+    func makeRefresher() {
+        // adding refresher to application
+        refresher = UIRefreshControl()
+        self.collectionView.addSubview(refresher)
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.tintColor = UIColor(red: 212.0/255, green: 212.0/255, blue: 212.0/255, alpha: 1)
+        refresher.addTarget(self, action: #selector(updateData), for: .valueChanged)
+    }
+    
+    @objc func updateData(){
+        Repository.shared.getNews(forceReloadDataFromAPI: true)
+
     }
 
     override func viewDidLoad() {
+        makeRefresher()
         super.viewDidLoad()
         coordinator = AppCoordinator.shared
         NotificationCenter.default.addObserver(self, selector: #selector(dataLoaded), name: NSNotification.Name(rawValue: "synced"), object: nil)
