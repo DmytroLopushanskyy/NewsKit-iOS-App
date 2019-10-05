@@ -60,7 +60,18 @@ class AppCoordinator {
         let controller = UIStoryboard(name: "Topics", bundle: nil).instantiateViewController(withIdentifier: "TopicsTableViewController") as! TopicsTableVC
 
         print(controller.selectedOptions)
-        let selectedOptions = [1, 2, 5]
+        var selectedOptions = [Int]()
+        controller.categories.enumerated().forEach { (offset, cellData) in
+            if User.shared.topics.contains(cellData.name.lowercased()) {
+                selectedOptions.append(offset)
+            } else {
+                if selectedOptions.contains(offset) {
+                    selectedOptions.filter { $0 != offset}
+                }
+            }
+        }
+        
+        
         controller.selectedOptions = selectedOptions
 
         self.navigationController.pushViewController(controller, animated: true)

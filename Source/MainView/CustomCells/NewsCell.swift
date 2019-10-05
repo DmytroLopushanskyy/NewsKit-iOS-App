@@ -30,7 +30,7 @@ class NewsCell: UICollectionViewCell {
         textViewContainer.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor).isActive = true
         textViewContainer.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor).isActive = true
         textViewContainer.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 250).isActive = true
-        textViewContainer.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        textViewContainer.heightAnchor.constraint(equalToConstant: 100).isActive = true
 
         let imageView = UIImageView()
         imageView.downloaded(from: article.image, contentMode: .scaleToFill)
@@ -52,7 +52,7 @@ class NewsCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.widthAnchor.constraint(equalToConstant: screenwidth-20).isActive = true
         label.leadingAnchor.constraint(equalTo: textViewContainer.leadingAnchor, constant: 10).isActive = true
-        label.topAnchor.constraint(equalTo: textViewContainer.topAnchor, constant: 10).isActive = true
+        label.topAnchor.constraint(equalTo: textViewContainer.topAnchor, constant: 5).isActive = true
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.centerYAnchor.constraint(equalTo: textViewContainer.centerYAnchor).isActive = true
