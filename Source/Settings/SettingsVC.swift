@@ -76,6 +76,22 @@ class SettingsVC: UITableViewController, UITextFieldDelegate {
             default:
                 return
             }
+        case 2:
+            switch indexPath.row {
+            case 0:
+                return
+            case 1:
+                return
+            default:
+                return
+            }
+        case 3:
+            switch indexPath.row {
+            case 0:
+                return
+            default:
+                return
+            }
         default:
             return
         }
