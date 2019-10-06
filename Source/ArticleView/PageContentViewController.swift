@@ -27,14 +27,6 @@ class PageContentViewController: UIViewController,SFSafariViewControllerDelegate
         safariVC.delegate = self
     }
     
-    
-    @IBAction func onCloseButton(_ sender: Any) {
-    }
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        let tap = UIGestureRecognizer(target: self, action: #selector(self.closeWindow(_:)))

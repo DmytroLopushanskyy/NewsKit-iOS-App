@@ -5,7 +5,6 @@ target 'NewsKit-iOS-App' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'SwiftLint'
-
   # Pods for NewsKit-iOS-App
 
 end

@@ -46,6 +46,7 @@ class SitesVC: UITableViewController {
         override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
             cell.textLabel?.text = sites[indexPath.row].name
+            cell.tintColor = UIColor.red
             if sites[indexPath.row].selected {
                 cell.accessoryType = .checkmark
                 selectedOptions.append(indexPath.row)

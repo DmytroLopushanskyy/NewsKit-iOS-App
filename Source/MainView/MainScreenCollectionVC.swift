@@ -26,6 +26,14 @@ class MainScreenCollectionVC: UICollectionViewController,
         newsList = NewsStorage.shared.news
         self.collectionView.reloadData()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.tintColor = UIColor.gray
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 220 / 255, green: 60 / 255, blue: 60 / 255, alpha: 1)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +53,6 @@ class MainScreenCollectionVC: UICollectionViewController,
         }
 
         self.navigationController?.navigationBar.setBackgroundImage(UIColor.white.image(), for: .default)
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 181.0/255, green: 181.0/255, blue: 181.0/255, alpha: 1)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.title = User.shared.name
         self.navigationController?.navigationBar.shadowImage = UIColor.white.image()

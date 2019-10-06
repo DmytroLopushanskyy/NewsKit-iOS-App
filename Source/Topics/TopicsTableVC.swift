@@ -53,6 +53,8 @@ class TopicsTableVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = categories[indexPath.row].name
         cell.imageView?.image = categories[indexPath.row].image
+        cell.tintColor = UIColor(red: 220/255, green: 60/255, blue: 60/255, alpha: 1)
+        
         if categories[indexPath.row].selected {
             cell.accessoryType = .checkmark
             selectedOptions.append(indexPath.row)
@@ -60,6 +62,7 @@ class TopicsTableVC: UITableViewController {
         if selectedOptions.contains(indexPath.row) {
             categories[indexPath.row].selected = true
             cell.accessoryType = .checkmark
+
         } else {
             cell.accessoryType = .none
             selectedOptions = selectedOptions.filter { $0 != indexPath.row }
@@ -78,7 +81,7 @@ class TopicsTableVC: UITableViewController {
             selectedOptions = selectedOptions.filter { $0 != indexPath.row }
         } else {
             cell?.accessoryType = .checkmark
-
+            
             categories[indexPath.row].selected = true
         }
         tableView.deselectRow(at: indexPath, animated: true)
