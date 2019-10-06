@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SafariServices
+
 
 extension Date {
 func dateStringWith(strFormat: String) -> String {
@@ -18,16 +20,22 @@ func dateStringWith(strFormat: String) -> String {
     }
 }
 
-class SettingsVC: UITableViewController, UITextFieldDelegate {
-    var coordinator: AppCoordinator!
+class SettingsVC: UITableViewController, UITextFieldDelegate, SFSafariViewControllerDelegate {
     
-    @IBOutlet weak var inputTimeField: UITextField!
+    // MARK: - Properties
+    var coordinator: AppCoordinator!
     private var datePicker:  UIDatePicker?
     var pickerState = false
     var tapGesture: UITapGestureRecognizer?
     
+    // MARK: - IBOutlets
+    @IBOutlet weak var inputTimeField: UITextField!
+
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .time
@@ -42,6 +50,7 @@ class SettingsVC: UITableViewController, UITextFieldDelegate {
         
         coordinator = AppCoordinator.shared
     }
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         view.addGestureRecognizer(self.tapGesture!)
     }
@@ -62,25 +71,26 @@ class SettingsVC: UITableViewController, UITextFieldDelegate {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch  indexPath.section{
-        case 0:
-            return
         case 1:
             switch indexPath.row {
-            case 0:
-                return
             case 1:
                 coordinator.presentAboutThisAppVC()
             case 2:
-                coordinator.presentAboutThisAppVC()
-
+                return
             default:
                 return
             }
         case 2:
             switch indexPath.row {
             case 0:
-                return
+                let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com/newskitbot/")!)
+                self.present(safariVC, animated: true, completion: nil)
+                safariVC.delegate = self
             case 1:
+                let safariVC = SFSafariViewController(url: URL(string: "https://t.me/newskit_bot")!)
+                self.present(safariVC, animated: true, completion: nil)
+                safariVC.delegate = self
+            case 2:
                 return
             default:
                 return
