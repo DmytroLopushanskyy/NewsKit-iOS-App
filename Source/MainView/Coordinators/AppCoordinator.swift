@@ -81,8 +81,7 @@ class AppCoordinator {
         print("presenting main")
         //window?.rootViewController = AppCoordinator.shared.navigationController
         
- 
-        Repository.shared.getNews()
+        Repository.shared.getNews(forceReloadDataFromAPI: true)
         NotificationCenter.default.addObserver(self, selector: #selector(dataLoaded2), name: NSNotification.Name(rawValue: "synced"), object: nil)
         
     }
@@ -106,9 +105,9 @@ class AppCoordinator {
         }
     }
 
-    func presentArticleViewController() {
+    func presentArticleViewController(index: Int = 0) {
         let controller = UIStoryboard(name: "Article", bundle: nil).instantiateViewController(withIdentifier: "ArticleVC") as! PageViewController
-
+        controller.startIndex = index
         //self.navigationController.present(controller, animated: true, completion: nil)
         self.navigationController.pushViewController(controller, animated: true)
     }

@@ -10,6 +10,7 @@ import UIKit
 
 class PageViewController: UIViewController, UIPageViewControllerDataSource {
     var newsList: [ArticleData] = []
+    var startIndex = 0
     var pageController: UIPageViewController!
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let index = (viewController as! PageContentViewController).index - 1
@@ -44,7 +45,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
     @objc func dataLoaded() {
         DispatchQueue.main.async {
             self.newsList = NewsStorage.shared.news
-            let vc = self.generateContentViewController(index: 0)
+            let vc = self.generateContentViewController(index: self.startIndex)
             self.pageController.setViewControllers([vc], direction: .forward, animated: true, completion: nil)
         }
 
