@@ -27,6 +27,7 @@ class MainLabelsTableVC: UITableViewController, CoordinatableController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         coordinator = AppCoordinator.shared
+        tableView.alwaysBounceVertical = false;
 
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
 

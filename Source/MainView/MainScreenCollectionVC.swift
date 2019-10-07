@@ -45,6 +45,7 @@ class MainScreenCollectionVC: UICollectionViewController,
     override func viewDidLoad() {
         makeRefresher()
         super.viewDidLoad()
+        collectionView.alwaysBounceVertical = true;
         coordinator = AppCoordinator.shared
         NotificationCenter.default.addObserver(self, selector: #selector(dataLoaded), name: NSNotification.Name(rawValue: "synced"), object: nil)
         // Uncomment the following line to preserve selection between presentations
@@ -151,6 +152,9 @@ class MainScreenCollectionVC: UICollectionViewController,
 //    }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row > 1 {
+            coordinator.presentArticleViewController(index: indexPath.row - 2)
+        }
     }
 
     // MARK: UICollectionViewDelegate
