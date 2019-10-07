@@ -70,43 +70,28 @@ class SettingsVC: UITableViewController, UITextFieldDelegate, SFSafariViewContro
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch  indexPath.section{
-        case 1:
-            switch indexPath.row {
-            case 1:
-                coordinator.presentAboutThisAppVC()
-            case 2:
-                return
-            default:
-                return
-            }
-        case 2:
-            switch indexPath.row {
-            case 0:
-                let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com/newskitbot/")!)
-                self.present(safariVC, animated: true, completion: nil)
-                safariVC.delegate = self
-            case 1:
-                let safariVC = SFSafariViewController(url: URL(string: "https://t.me/newskit_bot")!)
-                self.present(safariVC, animated: true, completion: nil)
-                safariVC.delegate = self
-            case 2:
-                return
-            default:
-                return
-            }
-        case 3:
-            switch indexPath.row {
-            case 0:
-                return
-            default:
-                return
-            }
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.selectionStyle = .default
+        switch indexPath {
+        case [1,1]:
+            coordinator.presentAboutThisAppVC()
+        case [2,0]:
+            let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com/newskitbot/")!)
+            self.present(safariVC, animated: true, completion: nil)
+            safariVC.delegate = self
+        case [2,1]:
+            let safariVC = SFSafariViewController(url: URL(string: "https://t.me/newskit_bot")!)
+            self.present(safariVC, animated: true, completion: nil)
+            safariVC.delegate = self
+        case [3,0]:
+            User.shared = User()
+            coordinator.presentLogin()
         default:
             return
         }
-        
-        
+        tableView.deselectRow(at: indexPath, animated: true)
+
+
     }
 }
 

@@ -137,9 +137,8 @@ class AppCoordinator {
     }
     func presentLogin() {
         let controller = UIStoryboard(name: "sign", bundle: nil).instantiateViewController(withIdentifier: "TabBarVC") as! UITabBarController
-
-        self.navigationController.present(controller, animated: true, completion: nil)
         window?.rootViewController = controller
+        self.navigationController.present(controller, animated: true, completion: nil)
     }
     
     func presentLoading() {

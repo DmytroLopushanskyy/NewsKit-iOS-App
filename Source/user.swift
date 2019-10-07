@@ -32,7 +32,7 @@ import Foundation
 //}
 
 class User {
-    static let shared = User()
+    static var shared = User()
     
     var name = ""
     var username = ""

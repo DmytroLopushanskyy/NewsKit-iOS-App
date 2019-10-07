@@ -249,21 +249,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uYL-4u-miL">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="vLi-sm-aQc"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Вийти">
-                                                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    </state>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вийти" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FdA-Mw-KVI">
+                                                    <rect key="frame" x="185" y="11" width="49" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.86274509799999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="uYL-4u-miL" firstAttribute="top" secondItem="rHv-6g-EyG" secondAttribute="top" id="22g-i9-NAS"/>
-                                                <constraint firstAttribute="bottom" secondItem="uYL-4u-miL" secondAttribute="bottom" id="TwR-PL-hcU"/>
-                                                <constraint firstAttribute="trailing" secondItem="uYL-4u-miL" secondAttribute="trailing" id="cTv-N0-UIv"/>
-                                                <constraint firstItem="uYL-4u-miL" firstAttribute="leading" secondItem="rHv-6g-EyG" secondAttribute="leading" id="nRK-UB-hYu"/>
+                                                <constraint firstItem="FdA-Mw-KVI" firstAttribute="top" secondItem="rHv-6g-EyG" secondAttribute="top" constant="11" id="1bk-VV-mS3"/>
+                                                <constraint firstAttribute="bottom" secondItem="FdA-Mw-KVI" secondAttribute="bottom" constant="12" id="4JF-4Q-5yw"/>
+                                                <constraint firstAttribute="trailing" secondItem="FdA-Mw-KVI" secondAttribute="trailing" constant="180" id="HGM-Ar-jYI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
