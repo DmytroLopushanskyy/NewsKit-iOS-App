@@ -12,6 +12,7 @@ class SignUpViewController: UIViewController, CoordinatableController {
     @IBOutlet weak var login: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var fullname: UITextField!
+    @IBOutlet weak var logo: UIImageView!
     
     var coordinator: AppCoordinator!
     
@@ -31,8 +32,43 @@ class SignUpViewController: UIViewController, CoordinatableController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        let navController = coordinator.navigationController
-//        coordinator = AppCoordinator(with: navigationController!)
+        if #available(iOS 13.0, *) {
+            var image: UIImage
+            switch traitCollection.userInterfaceStyle {
+            case
+            .unspecified,
+            .light: image = UIImage(named: "NewsKitLogoSmall.png")!
+            case .dark: image = UIImage(named: "NewsKitLogoBlack.png")!
+            @unknown default:
+                image = UIImage(named: "NewsKitLogoSmall.png")!
+            }
+            logo.image = image
+            print("Image set!")
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if #available(iOS 13.0, *) {
+            let hasUserInterfaceStyleChanged = previousTraitCollection?.hasDifferentColorAppearance(comparedTo: traitCollection)
+            if let changed = hasUserInterfaceStyleChanged {
+                if changed {
+                    var image: UIImage
+                    switch traitCollection.userInterfaceStyle {
+                    case
+                    .unspecified,
+                    .light: image = UIImage(named: "NewsKitLogoSmall.png")!
+                    case .dark: image = UIImage(named: "NewsKitLogoBlack.png")!
+                    @unknown default:
+                        image = UIImage(named: "NewsKitLogoSmall.png")!
+                    }
+                    logo.image = image
+                    print("Image changed to dark")
+                }
+            }
+            
+        }
     }
     
 

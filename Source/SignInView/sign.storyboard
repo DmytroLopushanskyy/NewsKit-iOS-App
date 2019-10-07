@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15508"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +29,7 @@
         <!--Увійти-->
         <scene sceneID="tqN-H3-BRY">
             <objects>
-                <viewController storyboardIdentifier="SignInViewController" id="fVl-9Z-yFi" customClass="SignInViewController" customModule="NewsKit_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="fVl-9Z-yFi" customClass="SignInViewController" customModule="NewsKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QAU-E7-7i3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,9 +80,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aFT-k0-g5o"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Увійти" image="person.circle" catalog="system" selectedImage="person.crop.circle" id="vYP-4F-MwN"/>
+                    <tabBarItem key="tabBarItem" title="Увійти" image="person.circle" catalog="system" selectedImage="person.circle.fill" id="vYP-4F-MwN"/>
                     <connections>
                         <outlet property="login" destination="Dwf-yC-ILE" id="h8z-wU-6Nj"/>
+                        <outlet property="logo" destination="h3M-3N-Jzr" id="VaR-ZF-9Kr"/>
                         <outlet property="password" destination="n6b-do-cga" id="qIo-KU-OgM"/>
                     </connections>
                 </viewController>
@@ -93,7 +94,7 @@
         <!--Зареєструватися-->
         <scene sceneID="ubq-NL-4OD">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" id="805-AB-3wm" customClass="SignUpViewController" customModule="NewsKit_iOS_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="805-AB-3wm" customClass="SignUpViewController" customModule="NewsKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="b05-wX-aFe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -158,6 +159,7 @@
                     <connections>
                         <outlet property="fullname" destination="Ebi-we-8qw" id="nxY-sy-Ld2"/>
                         <outlet property="login" destination="ffD-4w-cvq" id="wxA-5d-J5w"/>
+                        <outlet property="logo" destination="UGo-FC-alJ" id="iDO-2b-PTc"/>
                         <outlet property="password" destination="Apf-4O-RcD" id="oWE-PJ-riM"/>
                     </connections>
                 </viewController>
@@ -170,6 +172,6 @@
         <image name="NewsKitLogoSmall" width="1181" height="251"/>
         <image name="person.badge.plus.fill" catalog="system" width="64" height="58"/>
         <image name="person.circle" catalog="system" width="64" height="60"/>
-        <image name="person.crop.circle" catalog="system" width="64" height="60"/>
+        <image name="person.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>
