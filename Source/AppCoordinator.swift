@@ -114,8 +114,12 @@ class AppCoordinator {
     
     func presentSettingsViewController() {
         let controller = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsSB") as! SettingsVC
-
-        self.navigationController.pushViewController(controller, animated: true)
+        let nav = self.navigationController //grab an instance of the current navigationController
+        DispatchQueue.main.async { //make sure all UI updates are on the main thread.
+            nav.view.layer.add(CATransition().segueFromLeft(), forKey: nil)
+            nav.pushViewController(controller, animated: false)
+        }
+        //self.navigationController.pushViewController(controller, animated: true)
     }
     
     func presentAboutThisAppVC() {
@@ -145,6 +149,7 @@ class AppCoordinator {
         let controller = UIStoryboard(name: "Loading", bundle: nil).instantiateViewController(withIdentifier: "Loading")
         controller.modalPresentationStyle = .fullScreen
         window?.rootViewController = AppCoordinator.shared.navigationController
+        controller.modalTransitionStyle = .crossDissolve
         self.navigationController.present(controller, animated: true, completion: nil)
     }
     

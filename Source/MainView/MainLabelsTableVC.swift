@@ -15,7 +15,7 @@ protocol CoordinatableController {
 class MainLabelsTableVC: UITableViewController, CoordinatableController {
     var coordinator: AppCoordinator!
 
-    var labeLTitles = ["News", "Web Sources", "Keywords & Topics"]
+    var labeLTitles = ["Новини", "Веб-сайти", "Ключові слова & Теми"]
     var imageNames = ["news2.png", "web2.png", "keywords2.png" ]
 
     override func viewDidLoad() {

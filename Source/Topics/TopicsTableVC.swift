@@ -79,12 +79,16 @@ class TopicsTableVC: UITableViewController {
             cell?.accessoryType = .none
             categories[indexPath.row].selected = false
             selectedOptions = selectedOptions.filter { $0 != indexPath.row }
+            User.shared.topics = User.shared.topics.filter { $0 != categories[indexPath.row].name.lowercased() }
         } else {
             cell?.accessoryType = .checkmark
-            
+            User.shared.topics.append(categories[indexPath.row].name.lowercased())
             categories[indexPath.row].selected = true
         }
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        print(categories[indexPath.row].name.lowercased())
+        //APIhandler.shared.changeTopics(username: User.shared.username, topics: categories[indexPath.row].name)
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
