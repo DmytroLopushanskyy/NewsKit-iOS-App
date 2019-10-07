@@ -12,7 +12,16 @@ class NewsCell: UICollectionViewCell {
     let screenwidth = UIScreen.main.bounds.width
 
     func configureCell(collectionView: MainScreenCollectionVC, article: ArticleData) {
-        self.backgroundColor = .white
+        let color: UIColor
+        let reversedColor: UIColor
+        if #available(iOS 13.0, *) {
+            color = dynamicColor
+            reversedColor = dynamicColorReversed
+        } else {
+            color = .white
+            reversedColor = .black
+        }
+        self.backgroundColor = color
         print(article)
         let imageViewContainer = UIView()
         self.contentView.addSubview(imageViewContainer)
@@ -56,7 +65,7 @@ class NewsCell: UICollectionViewCell {
         label.adjustsFontSizeToFitWidth = true
         label.textAlignment = .center
         label.centerYAnchor.constraint(equalTo: textViewContainer.centerYAnchor).isActive = true
-        self.dropShadow(color: .black, opacity: 1, offSet: CGSize(width: -1, height: 2), radius: 5, scale: true)
+        self.dropShadow(color: reversedColor, opacity: 1, offSet: CGSize(width: -1, height: 2), radius: 5, scale: true)
     }
     
     func nothingToShow() {
@@ -78,6 +87,20 @@ class NewsCell: UICollectionViewCell {
     override func prepareForReuse() {
         self.contentView.subviews.forEach {
             $0.removeFromSuperview()
+        }
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if #available(iOS 13.0, *) {
+            let hasUserInterfaceStyleChanged = previousTraitCollection?.hasDifferentColorAppearance(comparedTo: traitCollection)
+            if let hasUserInterfaceStyleChanged = hasUserInterfaceStyleChanged {
+                if hasUserInterfaceStyleChanged {
+                    self.backgroundColor = dynamicColor
+                    self.dropShadow(color: dynamicColorReversed, opacity: 1, offSet: CGSize(width: -1, height: 2), radius: 5, scale: true)
+                }
+            }
         }
     }
 

@@ -51,11 +51,50 @@ class MainScreenCollectionVC: UICollectionViewController,
             layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             layout.scrollDirection = .vertical
         }
-
-        self.navigationController?.navigationBar.setBackgroundImage(UIColor.white.image(), for: .default)
+        let color: UIColor
+        if #available(iOS 13.0, *) {
+            color = dynamicColor
+        } else {
+            color = UIColor.white
+        }
+    self.navigationController?.navigationBar.setBackgroundImage(color.image(), for: .default)
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 181.0/255, green: 181.0/255, blue: 181.0/255, alpha: 1)
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.title = User.shared.name
-        self.navigationController?.navigationBar.shadowImage = UIColor.white.image()
+        self.navigationController?.navigationBar.shadowImage = color.image()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if UIApplication.shared.supportsAlternateIcons {
+            if let alternateIconName = UIApplication.shared.alternateIconName {
+                print("current icon is \(alternateIconName), change to primary icon")
+                UIApplication.shared.setAlternateIconName(nil)
+            } else {
+                print("current icon is primary icon, change to alternative icon")
+                UIApplication.shared.setAlternateIconName("AlternateIcon"){ error in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    } else {
+                        print("Done!")
+                    }
+                }
+            }
+        }
+        
+
+        if #available(iOS 13.0, *) {
+            let hasUserInterfaceStyleChanged = previousTraitCollection?.hasDifferentColorAppearance(comparedTo: traitCollection)
+            if let hasUserInterfaceStyleChanged = hasUserInterfaceStyleChanged {
+                if hasUserInterfaceStyleChanged {
+                    let color = dynamicColor
+                self.navigationController?.navigationBar.setBackgroundImage(color.image(), for: .default)
+                    self.navigationController?.navigationBar.shadowImage = color.image()
+                }
+            }
+            
+        }
     }
 
     /*
@@ -209,4 +248,9 @@ extension UIColor {
     func image() -> UIImage {
         return UIImage.imageWithColor(color: self)
     }
+}
+
+func delay(_ delay:Double, closure:@escaping ()->()) {
+    let when = DispatchTime.now() + delay
+    DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
 }

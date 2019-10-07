@@ -64,26 +64,6 @@ class APIhandler {
         }
     }
     
-//    func signIn(username: String, password: String, callback: (() -> Void)? = nil){
-//        let urlString = "http://newskit.pythonanywhere.com/api/signin"
-//        let url = URL(string: urlString)!
-//        
-//        
-//        let parameterDictionary = ["username": username, "password": password, "api_key": "SomeSuperSecretApiKeyForiOSNewsKitApplication2019_ODO"]
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
-//        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
-//            return
-//        }
-//        request.httpBody = httpBody
-//        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
-//            print(response, error)
-//        }
-//        dataTask.resume()
-//        
-//    }
-    
     func signUp(username: String, password: String, fullname: String, callback: (() -> Void)? = nil){
         let urlString = "http://newskit.pythonanywhere.com/api/signup"
         let url = URL(string: urlString)!
@@ -116,6 +96,28 @@ class APIhandler {
         DispatchQueue.main.async {
             AppCoordinator.shared.presentMainViewController()
         }
+    }
+    
+    func changeTopics(username: String, topics: String, callback: (() -> Void)? = nil){
+        let urlString = "http://newskit.pythonanywhere.com/api/changetopics"
+        let url = URL(string: urlString)!
+        
+        let parameterDictionary = ["username": username, "topics": topics, "api_key": "SomeSuperSecretApiKeyForiOSNewsKitApplication2019_ODO"]
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameterDictionary, options: []) else {
+            return
+        }
+        request.httpBody = httpBody
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if data != nil {
+                print("Topics changed!")
+            } else {
+                print(response ?? "no response", error ?? "no error", data ?? "no data")
+            }
+        }
+        dataTask.resume()
     }
     
 }
