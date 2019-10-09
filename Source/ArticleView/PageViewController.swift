@@ -22,7 +22,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let index = (viewController as! PageContentViewController).index + 1
-        if index > newsList.count{
+        if index > newsList.count - 1{
             return nil
         }
         return generateContentViewController(index: index)

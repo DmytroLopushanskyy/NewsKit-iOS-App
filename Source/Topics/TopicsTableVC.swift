@@ -88,7 +88,7 @@ class TopicsTableVC: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
         
         print(categories[indexPath.row].name.lowercased())
-        //APIhandler.shared.changeTopics(username: User.shared.username, topics: categories[indexPath.row].name)
+        APIhandler.shared.changeTopics(username: User.shared.username, topics: categories[indexPath.row].name)
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
