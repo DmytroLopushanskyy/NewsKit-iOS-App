@@ -106,7 +106,7 @@ class APIhandler {
                 } catch {
                     print("Error in user encoding!")
                 }
-
+                
             } else {
                 print(response ?? "no response", error ?? "no error", data ?? "no data")
             }
@@ -129,7 +129,7 @@ class APIhandler {
         let urlString = "http://newskit.pythonanywhere.com/api/changetopics"
         let url = URL(string: urlString)!
         
-        let parameterDictionary = ["username": User.shared.username, "topics": topics.lowercased(), "api_key": "SomeSuperSecretApiKeyForiOSNewsKitApplication2019_ODO"]
+        let parameterDictionary = ["username": username, "topics": topics.lowercased(), "api_key": "SomeSuperSecretApiKeyForiOSNewsKitApplication2019_ODO"]
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
