@@ -23,6 +23,8 @@ class PageContentViewController: UIViewController, SFSafariViewControllerDelegat
     @IBOutlet weak var desc: UILabel!
     @IBAction func readMoreTapped(_ sender: Any) {
         let safariVC = SFSafariViewController(url: URL(string: article!.url)!)
+        safariVC.transitioningDelegate = self
+//        self.navigationController?.pushViewController(safariVC, animated: true)
         self.present(safariVC, animated: true, completion: nil)
         safariVC.delegate = self
     }
@@ -83,4 +85,16 @@ class PageContentViewController: UIViewController, SFSafariViewControllerDelegat
     }
     */
 
+}
+
+extension PageContentViewController: UIViewControllerTransitioningDelegate {
+  func animationController(forPresented presented: UIViewController,
+                           presenting: UIViewController,
+                           source: UIViewController)
+    -> UIViewControllerAnimatedTransitioning? {
+    return FlipPresentAnimationController(originFrame: view.frame)
+  }
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return FlipPresentAnimationController(originFrame: view.frame)
+    }
 }

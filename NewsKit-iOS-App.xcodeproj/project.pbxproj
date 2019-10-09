@@ -37,6 +37,8 @@
 		6AA6D5D923473CC00026CFCC /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA6D5D823473CC00026CFCC /* Settings.storyboard */; };
 		6AA6D5DC234784B00026CFCC /* SitesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AA6D5DB234784B00026CFCC /* SitesVC.swift */; };
 		6AA6D5DE234785190026CFCC /* Sites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA6D5DD234785190026CFCC /* Sites.storyboard */; };
+		7C00E77B234E2B6E0060E548 /* FlipPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00E77A234E2B6E0060E548 /* FlipPresentAnimationController.swift */; };
+		7C00E781234E2EF30060E548 /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00E780234E2EF30060E548 /* AnimationHelper.swift */; };
 		7C9C7BA52345DCAD002D6FBE /* CoreStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9C7BA42345DCAD002D6FBE /* CoreStorage.swift */; };
 		7C9C7BA623465F73002D6FBE /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFB359B2345B4A100AEC7A2 /* Article.swift */; };
 		7C9C7BA723465F7C002D6FBE /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFB35992345B49700AEC7A2 /* News.swift */; };
@@ -87,6 +89,8 @@
 		6AA6D5D823473CC00026CFCC /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		6AA6D5DB234784B00026CFCC /* SitesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitesVC.swift; sourceTree = "<group>"; };
 		6AA6D5DD234785190026CFCC /* Sites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sites.storyboard; sourceTree = "<group>"; };
+		7C00E77A234E2B6E0060E548 /* FlipPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipPresentAnimationController.swift; sourceTree = "<group>"; };
+		7C00E780234E2EF30060E548 /* AnimationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
 		7C9C7BA42345DCAD002D6FBE /* CoreStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreStorage.swift; sourceTree = "<group>"; };
 		7C9C7BAA23465FC6002D6FBE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		7CB629A72335065700C64618 /* NewsKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +166,7 @@
 		47AB79F42344C94300EACB89 /* ArticleView */ = {
 			isa = PBXGroup;
 			children = (
+				7C00E779234E2B4C0060E548 /* Animation Controller */,
 				47AB79F52344C94300EACB89 /* Article.storyboard */,
 				47AB79F62344C94300EACB89 /* PageContentViewController.swift */,
 				47AB79F72344C94300EACB89 /* PageViewController.swift */,
@@ -214,6 +219,22 @@
 			path = Sites;
 			sourceTree = "<group>";
 		};
+		7C00E779234E2B4C0060E548 /* Animation Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7C00E77A234E2B6E0060E548 /* FlipPresentAnimationController.swift */,
+			);
+			path = "Animation Controller";
+			sourceTree = "<group>";
+		};
+		7C00E77C234E2EAB0060E548 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7C00E780234E2EF30060E548 /* AnimationHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		7CB6299E2335065700C64618 = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +258,7 @@
 		7CB629A92335065700C64618 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				7C00E77C234E2EAB0060E548 /* Helpers */,
 				47DC6CB0234A00C70001FC7F /* AlternateIcon */,
 				47AB79DE2344BF7600EACB89 /* AppCoordinator.swift */,
 				6AA6D5DA2347849A0026CFCC /* Sites */,
@@ -473,6 +495,8 @@
 				6AA6D5D323473C3E0026CFCC /* SettingsVC.swift in Sources */,
 				7C9C7BA723465F7C002D6FBE /* News.swift in Sources */,
 				7CBB18AF2346AC1D008485B2 /* SignInViewController.swift in Sources */,
+				7C00E781234E2EF30060E548 /* AnimationHelper.swift in Sources */,
+				7C00E77B234E2B6E0060E548 /* FlipPresentAnimationController.swift in Sources */,
 				47AB79FA2344C94300EACB89 /* PageViewController.swift in Sources */,
 				7CBB18B423473AD5008485B2 /* Image+Ext.swift in Sources */,
 			);
