@@ -74,7 +74,7 @@ class NewsCell: UICollectionViewCell {
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.numberOfLines = 5
         label.font = .systemFont(ofSize: 15, weight: .regular)
-        self.addSubview(label)
+        self.contentView.addSubview(label)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.widthAnchor.constraint(equalToConstant: screenwidth-20).isActive = true
         label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true

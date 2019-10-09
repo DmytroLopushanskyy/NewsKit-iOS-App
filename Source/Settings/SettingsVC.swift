@@ -84,7 +84,9 @@ class SettingsVC: UITableViewController, UITextFieldDelegate, SFSafariViewContro
             self.present(safariVC, animated: true, completion: nil)
             safariVC.delegate = self
         case [3,0]:
-            User.shared = User()
+            User.shared.logout()
+            defaults.set("", forKey: "username")
+            AppCoordinator.shared.appLoaded = false
             coordinator.presentLogin()
         default:
             return

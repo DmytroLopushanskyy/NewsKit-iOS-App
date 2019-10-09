@@ -7,19 +7,11 @@
 //
 
 import UIKit
-
-//class AppCoordinator {
-//    var navigationController: UINavigationController?
-//
-//    func presentNewsViewController() {
-//        let controller = UIStoryboard(name: "Topics", bundle: nil).instantiateViewController(withIdentifier: "TopicsTableViewController") as! TopicsTableViewController
-//
-//        self.navigationController?.pushViewController(controller, animated: true)
-//    }
-//
-//}
+import CryptoSwift
 
 class Coordinator { }
+
+let defaults = UserDefaults.standard
 
 class AppCoordinator {
     static let shared = AppCoordinator()
@@ -31,29 +23,37 @@ class AppCoordinator {
             window.rootViewController = navigationController
         }
     }
-    //var tabBarController: UITabBarController
-
-//    init(with navigationController: UINavigationController) {
-//        self.navigationController = navigationController
-//    }
-//    init(with tabBarController: UITabBarController) {
-//        self.tabBarController = tabBarController
-//    }
 
     deinit {
         print("deallocing \(self)")
     }
 
     func start() {
-        Repository.shared.getNews(forceReloadDataFromAPI: true)
-        //login or register
-        //show loading Storyboard
-        //data loading
-        //when finished:
-        presentLogin()
-       //presentMainViewController()
         
-        //presentArticleViewController()
+        do {
+            let encryptedUsername = defaults.string(forKey: "username")
+            if let encryptedUsername = encryptedUsername {
+                if encryptedUsername != "" {
+                    presentLoading()
+                    print(encryptedUsername)
+                    let decoded = try decodeHash(for: encryptedUsername)
+                    print("Username decoded:", decoded)
+                    
+                   
+                    APIhandler.shared.signIn(username: decoded, password: "f2f61#%03e771e4&(76cc2e75f3*%3891e2b8c)")
+                } else {
+                    print("username in User Defaults is empty string!")
+                    presentLogin()
+                }
+            } else {
+                print("no username in User Defaults")
+                presentLogin()
+            }
+        } catch {
+            print("error", error)
+            print("else login")
+            presentLogin()
+        }
     }
 
     func presentTopicsViewController() {
@@ -64,13 +64,8 @@ class AppCoordinator {
         controller.categories.enumerated().forEach { (offset, cellData) in
             if User.shared.topics.contains(cellData.name.lowercased()) {
                 selectedOptions.append(offset)
-            } else {
-                if selectedOptions.contains(offset) {
-                    selectedOptions.filter { $0 != offset}
-                }
             }
         }
-        
         
         controller.selectedOptions = selectedOptions
 
@@ -79,8 +74,6 @@ class AppCoordinator {
 
     func presentMainViewController() {
         print("presenting main")
-        //window?.rootViewController = AppCoordinator.shared.navigationController
-        
         Repository.shared.getNews(forceReloadDataFromAPI: true)
         NotificationCenter.default.addObserver(self, selector: #selector(dataLoaded2), name: NSNotification.Name(rawValue: "synced"), object: nil)
         
@@ -149,8 +142,8 @@ class AppCoordinator {
         let controller = UIStoryboard(name: "Loading", bundle: nil).instantiateViewController(withIdentifier: "Loading")
         controller.modalPresentationStyle = .fullScreen
         window?.rootViewController = AppCoordinator.shared.navigationController
+        window.makeKeyAndVisible()
         controller.modalTransitionStyle = .crossDissolve
         self.navigationController.present(controller, animated: true, completion: nil)
     }
-    
 }

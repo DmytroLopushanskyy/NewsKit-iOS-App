@@ -42,6 +42,17 @@ class User {
     var notificationTime = "12:00"
     var websites = [String]()
     var language = ""
+    
+    func logout() {
+        self.name = ""
+        self.username = ""
+        self.newsToSendID = [String]()
+        self.newsToSendArticle = [ArticleData]()
+        self.topics = [String]()
+        self.notificationTime = "12:00"
+        self.websites = [String]()
+        self.language = ""
+    }
 }
 //extension User: Decodable{
 //    init(from decoder: Decoder) throws {

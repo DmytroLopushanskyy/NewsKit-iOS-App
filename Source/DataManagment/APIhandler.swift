@@ -47,9 +47,15 @@ class APIhandler {
                     }
                 }
                 
-                print("user created!")
-            } else {
-                print(response ?? "no response", error ?? "no error", data ?? "no data")
+                print("user logged in!", User.shared.username)
+                do {
+                    let encodedUsername = try generateHash(for: User.shared.username)
+                    defaults.set(encodedUsername, forKey: "username")
+                     print("username saved")
+               } catch {
+                   print("Error in user encoding!")
+               }
+                
             }
             DispatchQueue.main.async {
                 NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "userLoggedIn")))
@@ -61,6 +67,7 @@ class APIhandler {
     @objc func userLoggedIn() {
         DispatchQueue.main.async {
             AppCoordinator.shared.presentMainViewController()
+            print("presenting main VC")
         }
     }
     
@@ -82,6 +89,13 @@ class APIhandler {
                 User.shared.username = username
                 User.shared.name = fullname
                 print("user created!")
+                do {
+                    let encodedUsername = try generateHash(for: username)
+                    defaults.set(encodedUsername, forKey: "username")
+                } catch {
+                    print("Error in user encoding!")
+                }
+                
             } else {
                 print(response ?? "no response", error ?? "no error", data ?? "no data")
             }
@@ -102,7 +116,7 @@ class APIhandler {
         let urlString = "http://newskit.pythonanywhere.com/api/changetopics"
         let url = URL(string: urlString)!
         
-        let parameterDictionary = ["username": username, "topics": topics, "api_key": "SomeSuperSecretApiKeyForiOSNewsKitApplication2019_ODO"]
+        let parameterDictionary = ["username": username, "topics": topics.lowercased(), "api_key": "SomeSuperSecretApiKeyForiOSNewsKitApplication2019_ODO"]
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
