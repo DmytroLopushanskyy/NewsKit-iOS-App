@@ -14,7 +14,7 @@ class PageContentViewController: UIViewController, SFSafariViewControllerDelegat
     var article: ArticleData?
     var result: [ArticleData] = []
     var image: UIImage?
-    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var shareButton: UIView!
     @IBOutlet weak var closeWindowButton: UIView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var readMoreButton: UIButton!
@@ -31,6 +31,8 @@ class PageContentViewController: UIViewController, SFSafariViewControllerDelegat
         super.viewDidLoad()
 //        let tap = UIGestureRecognizer(target: self, action: #selector(self.closeWindow(_:)))
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.closeWindow(_:)))
+        let shareTap = UITapGestureRecognizer(target: self, action: #selector(self.shareArticle(_:)))
+        shareButton.addGestureRecognizer(shareTap)
         closeWindowButton.addGestureRecognizer(tap)
 //        closeWindowButton.isUserInteractionEnabled = true
 //        NotificationCenter.default.addObserver(self, selector: #selector(windowOrientationChange), name: NSNotification.Name., object: <#T##Any?#>)
@@ -38,7 +40,6 @@ class PageContentViewController: UIViewController, SFSafariViewControllerDelegat
         readMoreButton.layer.cornerRadius = 15
         if let imageUrl = article?.image {
             if let url = URL(string: imageUrl) {
-
                 DispatchQueue.global().async {
                     self.image = try? UIImage(data: Data(contentsOf: url))
                     if let image = self.image {
@@ -52,18 +53,19 @@ class PageContentViewController: UIViewController, SFSafariViewControllerDelegat
         }
     }
 
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-
-    }
-
     @objc func closeWindow(_ sender: UITapGestureRecognizer) {
         print("close")
 //        self.navigationController?.dismiss(animated: true, completion: nil)
         self.navigationController?.popViewController(animated: true)
     }
-
-    @objc func windowOrientationChange() {
-
+    @objc func shareArticle(_ sender: UITapGestureRecognizer) {
+        if let urlStr = article?.url{
+            if let url = NSURL(string: urlStr){
+                let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+                activityViewController.popoverPresentationController?.sourceView = self.view
+                self.present(activityViewController, animated: true, completion: nil)
+            }
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
