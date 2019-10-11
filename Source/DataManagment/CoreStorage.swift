@@ -13,8 +13,8 @@ class CoreStorage {
     static let shared = CoreStorage()
     var coreNews: [Artticle]!
 
-    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    private let coreStack = CoreDataStack.shared
+    private let context = CoreDataStack.shared.persistentContainer.viewContext
 
     init() {
         do {
@@ -46,7 +46,7 @@ class CoreStorage {
             context.delete(article)
         }
         coreNews = []
-        appDelegate.saveContext()
+        coreStack.saveContext()
     }
 
     func insert(from newsData: [ArticleData]) {
@@ -58,7 +58,7 @@ class CoreStorage {
             article.keywords = articleData.keywords
             article.sourceUrl = articleData.website
             article.tittle = articleData.title
-            appDelegate.saveContext()
+            coreStack.saveContext()
             coreNews.append(article)
         }
     }

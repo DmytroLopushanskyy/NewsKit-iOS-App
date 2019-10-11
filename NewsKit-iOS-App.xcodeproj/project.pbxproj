@@ -41,6 +41,7 @@
 		6AA6D5DE234785190026CFCC /* Sites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AA6D5DD234785190026CFCC /* Sites.storyboard */; };
 		7C00E77B234E2B6E0060E548 /* FlipPresentAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00E77A234E2B6E0060E548 /* FlipPresentAnimationController.swift */; };
 		7C00E781234E2EF30060E548 /* AnimationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C00E780234E2EF30060E548 /* AnimationHelper.swift */; };
+		7C28D44C235139AB00A9B3D2 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28D44B235139AB00A9B3D2 /* CoreDataStack.swift */; };
 		7C9C7BA52345DCAD002D6FBE /* CoreStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9C7BA42345DCAD002D6FBE /* CoreStorage.swift */; };
 		7C9C7BA623465F73002D6FBE /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFB359B2345B4A100AEC7A2 /* Article.swift */; };
 		7C9C7BA723465F7C002D6FBE /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFB35992345B49700AEC7A2 /* News.swift */; };
@@ -95,6 +96,7 @@
 		6AA6D5DD234785190026CFCC /* Sites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sites.storyboard; sourceTree = "<group>"; };
 		7C00E77A234E2B6E0060E548 /* FlipPresentAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipPresentAnimationController.swift; sourceTree = "<group>"; };
 		7C00E780234E2EF30060E548 /* AnimationHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationHelper.swift; sourceTree = "<group>"; };
+		7C28D44B235139AB00A9B3D2 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		7C9C7BA42345DCAD002D6FBE /* CoreStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreStorage.swift; sourceTree = "<group>"; };
 		7C9C7BAA23465FC6002D6FBE /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		7CB629A72335065700C64618 /* NewsKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -366,6 +368,7 @@
 				7CBB18A923466600008485B2 /* NewsRepository.swift */,
 				47AB7A2523478AC300EACB89 /* APIhandler.swift */,
 				47DC6CB9234B963B0001FC7F /* Decryption.swift */,
+				7C28D44B235139AB00A9B3D2 /* CoreDataStack.swift */,
 			);
 			path = DataManagment;
 			sourceTree = "<group>";
@@ -530,6 +533,7 @@
 				6AA6D5DC234784B00026CFCC /* SitesVC.swift in Sources */,
 				47AB7A2623478AC300EACB89 /* APIhandler.swift in Sources */,
 				47AB79EE2344BF8300EACB89 /* UIView+Ext.swift in Sources */,
+				7C28D44C235139AB00A9B3D2 /* CoreDataStack.swift in Sources */,
 				47AB79E62344BF7600EACB89 /* AppCoordinator.swift in Sources */,
 				7CFB353F2344DD7000AEC7A2 /* NewsKit.xcdatamodeld in Sources */,
 				47AB7A2023477A2F00EACB89 /* user.swift in Sources */,

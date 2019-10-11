@@ -6,6 +6,7 @@ target 'NewsKit-iOS-App' do
   use_frameworks!
   pod 'SwiftLint'
   pod 'CryptoSwift'
+  pod 'SDWebImage', '~> 5.0'
   # Pods for NewsKit-iOS-App
 
 end

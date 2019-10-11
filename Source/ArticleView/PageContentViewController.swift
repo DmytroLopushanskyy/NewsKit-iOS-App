@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import SDWebImage
 
 class PageContentViewController: UIViewController, SFSafariViewControllerDelegate {
     var index: Int = 0
@@ -42,15 +43,11 @@ class PageContentViewController: UIViewController, SFSafariViewControllerDelegat
         readMoreButton.layer.cornerRadius = 15
         if let imageUrl = article?.image {
             if let url = URL(string: imageUrl) {
-                DispatchQueue.global().async {
-                    self.image = try? UIImage(data: Data(contentsOf: url))
-                    if let image = self.image {
-                        DispatchQueue.main.async {
-                            self.img.image = image
-                            self.img.backgroundColor = UIColor(patternImage: image.blurEffect())
-                        }
-                    }
+                self.img.sd_setImage(with: url, placeholderImage: UIImage(named: "placeholder.png"), options: SDWebImageOptions.init()) { (image, error, cache, url) in
+                    self.img.backgroundColor = UIColor(patternImage: (image ?? UIImage(named: "placeholder")!).blurEffect())
                 }
+                self.img.backgroundColor = UIColor(patternImage: self.img.image!.blurEffect())
+
             }
         }
     }

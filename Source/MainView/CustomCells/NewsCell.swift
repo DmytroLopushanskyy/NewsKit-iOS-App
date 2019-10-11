@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NewsCell: UICollectionViewCell {
     let screenwidth = UIScreen.main.bounds.width
@@ -42,15 +43,20 @@ class NewsCell: UICollectionViewCell {
         textViewContainer.heightAnchor.constraint(equalToConstant: 100).isActive = true
 
         let imageView = UIImageView()
-        imageView.downloaded(from: article.image, contentMode: .scaleToFill)
-        imageView.blur()
-        imageViewContainer.addSubview(imageView)
-        imageViewContainer.stretchToSuperview(imageView)
-
         let imageView2 = UIImageView()
-        imageView2.downloaded(from: article.image, contentMode: .scaleAspectFit)
-        imageViewContainer.addSubview(imageView2)
-        imageViewContainer.stretchToSuperview(imageView2)
+        
+        imageView.contentMode = .scaleToFill
+        imageView2.contentMode = .scaleAspectFit
+
+        
+        imageView2.sd_setImage(with: URL(string: article.image) , placeholderImage: UIImage(named: "placeholder.png"), options: SDWebImageOptions.init()) { (image, error, cache, url) in
+            imageView.image = (image ?? UIImage(named: "placeholder")!).blurEffect()
+            imageViewContainer.addSubview(imageView)
+            imageViewContainer.addSubview(imageView2)
+            imageViewContainer.stretchToSuperview(imageView2)
+            imageViewContainer.stretchToSuperview(imageView)
+        }
+
 
         let label = UILabel()
         label.text = article.title
