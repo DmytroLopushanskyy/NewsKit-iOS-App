@@ -31,6 +31,7 @@ class SignUpViewController: UIViewController, CoordinatableController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround() 
 
         if #available(iOS 13.0, *) {
             var image: UIImage
