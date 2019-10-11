@@ -84,7 +84,6 @@ class MainScreenCollectionVC: UICollectionViewController,
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        
         if UIApplication.shared.supportsAlternateIcons {
             if let alternateIconName = UIApplication.shared.alternateIconName {
                 print("current icon is \(alternateIconName), change to primary icon")
