@@ -36,7 +36,7 @@ class TopicsTableVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Keywords & Topics"
+        self.title = "Ключові слова & теми"
     }
 
     // MARK: - Table view data source
@@ -94,8 +94,15 @@ class TopicsTableVC: UITableViewController {
         return 0
     }
     
-
-
+    @objc func nextClicked(sender: UIBarButtonItem) {
+        AppCoordinator.shared.presentAfterLoginSitesViewController()
+    }
+    func setUpTopicsAfterSignUp() {
+        self.title = "Оберіть теми"
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Далі", style: .done, target: self, action: #selector(self.nextClicked(sender:)))
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

@@ -27,7 +27,6 @@ class SettingsVC: UITableViewController, UITextFieldDelegate, SFSafariViewContro
     private var datePicker:  UIDatePicker?
     var pickerState = false
     var tapGesture: UITapGestureRecognizer?
-    
     // MARK: - IBOutlets
     @IBOutlet weak var inputTimeField: UITextField!
 
@@ -37,6 +36,7 @@ class SettingsVC: UITableViewController, UITextFieldDelegate, SFSafariViewContro
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .time
         datePicker?.locale = Locale(identifier: "UA")
@@ -55,6 +55,7 @@ class SettingsVC: UITableViewController, UITextFieldDelegate, SFSafariViewContro
         view.addGestureRecognizer(self.tapGesture!)
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
+
         view.removeGestureRecognizer(self.tapGesture!)
     }
 
@@ -73,6 +74,8 @@ class SettingsVC: UITableViewController, UITextFieldDelegate, SFSafariViewContro
         let cell = tableView.cellForRow(at: indexPath)
         cell?.selectionStyle = .default
         switch indexPath {
+        case [0, 0]:
+            cell?.selectionStyle = .none
         case [1,1]:
             coordinator.presentAboutThisAppVC()
         case [2,0]:

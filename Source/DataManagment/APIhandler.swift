@@ -95,7 +95,7 @@ class APIhandler {
                 } catch {
                     print("Error in user encoding!")
                 }
-                
+
             } else {
                 print(response ?? "no response", error ?? "no error", data ?? "no data")
             }
@@ -105,10 +105,12 @@ class APIhandler {
         }
         dataTask.resume()
         NotificationCenter.default.addObserver(self, selector: #selector(userCreated), name: NSNotification.Name(rawValue: "userCreated"), object: nil)
+        
     }
     @objc func userCreated() {
         DispatchQueue.main.async {
-            AppCoordinator.shared.presentMainViewController()
+//            AppCoordinator.shared.presentMainViewController()
+            AppCoordinator.shared.presentAfterLoginTopicsViewController()
         }
     }
     

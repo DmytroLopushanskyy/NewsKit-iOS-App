@@ -76,6 +76,7 @@ class MainScreenCollectionVC: UICollectionViewController,
         }
     self.navigationController?.navigationBar.setBackgroundImage(color.image(), for: .default)
         self.navigationController?.navigationBar.tintColor = UIColor(red: 181.0/255, green: 181.0/255, blue: 181.0/255, alpha: 1)
+        self.navigationController?.navigationBar.tintColor = UIColor.lightGray
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.title = User.shared.name
         self.navigationController?.navigationBar.shadowImage = color.image()
@@ -110,7 +111,6 @@ class MainScreenCollectionVC: UICollectionViewController,
                     self.navigationController?.navigationBar.shadowImage = color.image()
                 }
             }
-            
         }
     }
 

@@ -29,7 +29,7 @@ class SitesVC: UITableViewController {
             }
             
             
-            self.title = "Web Sources"
+            self.title = "Веб-сайти"
             self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         }
 
@@ -76,5 +76,14 @@ class SitesVC: UITableViewController {
                 sites[indexPath.row].selected = true
             }
             tableView.deselectRow(at: indexPath, animated: true)
+        }
+    
+        @objc func doneClicked(sender: UIBarButtonItem) {
+            AppCoordinator.shared.presentMainViewController()
+        }
+
+        func setUpAfterSignUp(){
+            self.title = "Оберіть сайти"
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Готово", style: .done, target: self, action: #selector(self.doneClicked(sender:)))
         }
 }

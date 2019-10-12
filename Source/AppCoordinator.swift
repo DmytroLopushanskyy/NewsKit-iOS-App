@@ -146,4 +146,20 @@ class AppCoordinator {
         controller.modalTransitionStyle = .crossDissolve
         self.navigationController.present(controller, animated: true, completion: nil)
     }
+
+    func presentAfterLoginSitesViewController() {
+        let controller = UIStoryboard(name: "Sites", bundle: nil).instantiateViewController(withIdentifier: "SitesVC") as! SitesVC
+        controller.setUpAfterSignUp()
+        
+        self.navigationController.pushViewController(controller, animated: true)
+        self.navigationController.dismiss(animated: true, completion: nil)
+    }
+    
+    func presentAfterLoginTopicsViewController() {
+        let controller = UIStoryboard(name: "Topics", bundle: nil).instantiateViewController(withIdentifier: "TopicsTableViewController") as! TopicsTableVC
+        controller.setUpTopicsAfterSignUp()
+
+
+        self.navigationController.pushViewController(controller, animated: true)
+        self.navigationController.dismiss(animated: true, completion: nil)    }
 }
