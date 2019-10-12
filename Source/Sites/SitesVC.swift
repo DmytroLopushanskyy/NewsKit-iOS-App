@@ -30,6 +30,7 @@ class SitesVC: UITableViewController {
             for site_id in User.shared.websites {
                 self.selectedOptions.append(String(Int(site_id)! - 1))
             }
+            print(selectedOptions)
             
             
             self.title = "Медіа-джерела"
@@ -72,12 +73,14 @@ class SitesVC: UITableViewController {
             if sites[indexPath.row].selected {
                 cell?.accessoryType = .none
                 sites[indexPath.row].selected = false
-                selectedOptions = selectedOptions.filter { $0 != String(indexPath.row) }
-                User.shared.websites = User.shared.websites.filter { $0 != String(indexPath.row) }
+                selectedOptions = selectedOptions.filter { $0 != String(indexPath.row + 1) }
+                print(selectedOptions)
+                User.shared.websites = User.shared.websites.filter { $0 != String(indexPath.row + 1)}
             } else {
                 cell?.accessoryType = .checkmark
                 sites[indexPath.row].selected = true
-                User.shared.websites.append(String(indexPath.row))
+                User.shared.websites.append(String(indexPath.row + 1))
+                selectedOptions.append(String(indexPath.row + 1))
             }
             tableView.deselectRow(at: indexPath, animated: true)
             

