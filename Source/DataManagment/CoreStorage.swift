@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class CoreStorage {
     static let shared = CoreStorage()
     var coreNews: [Artticle]!
@@ -23,12 +22,12 @@ class CoreStorage {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
-    
-    func isEmpty() -> Bool{
+
+    func isEmpty() -> Bool {
         return self.coreNews.isEmpty
     }
 
-    func getNews() -> Void {
+    func getNews() {
         var news: [ArticleData] = []
         do {
             self.coreNews = try self.context.fetch(Artticle.fetchRequest())

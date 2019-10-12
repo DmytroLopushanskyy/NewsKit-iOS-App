@@ -264,6 +264,7 @@
                                                 <constraint firstItem="FdA-Mw-KVI" firstAttribute="top" secondItem="rHv-6g-EyG" secondAttribute="top" constant="11" id="1bk-VV-mS3"/>
                                                 <constraint firstAttribute="bottom" secondItem="FdA-Mw-KVI" secondAttribute="bottom" constant="12" id="4JF-4Q-5yw"/>
                                                 <constraint firstAttribute="trailing" secondItem="FdA-Mw-KVI" secondAttribute="trailing" constant="180" id="HGM-Ar-jYI"/>
+                                                <constraint firstItem="FdA-Mw-KVI" firstAttribute="leading" secondItem="rHv-6g-EyG" secondAttribute="leading" constant="185" id="s3z-fi-rXc"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

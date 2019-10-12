@@ -17,7 +17,7 @@ class FlipPresentAnimationController: NSObject, UIViewControllerAnimatedTransiti
     }
 
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 1.0
+        return 0.6
     }
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
@@ -41,7 +41,7 @@ class FlipPresentAnimationController: NSObject, UIViewControllerAnimatedTransiti
             delay: 0,
             options: .calculationModeCubic,
             animations: {
-            
+
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1 / 2) {
                     fromVC.view.layer.transform = AnimationHelper.yRotation(-.pi / 2)
                 }
@@ -49,8 +49,6 @@ class FlipPresentAnimationController: NSObject, UIViewControllerAnimatedTransiti
                 UIView.addKeyframe(withRelativeStartTime: 1 / 2, relativeDuration: 1 / 2) {
                     toVC.view.layer.transform = AnimationHelper.yRotation(0.0)
                 }
-
-
 
             },
             completion: { _ in
@@ -60,4 +58,3 @@ class FlipPresentAnimationController: NSObject, UIViewControllerAnimatedTransiti
             })
     }
 }
-

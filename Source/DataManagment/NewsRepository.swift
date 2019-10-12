@@ -19,9 +19,9 @@ class Repository {
             print("Data from Core Storage")
             NewsLoader.shared.loadLocal()
             NewsStorage.shared.sync()
-        }else{
+        } else {
             print("Data from API")
-            NewsLoader.shared.loadGlobal() {
+            NewsLoader.shared.loadGlobal {
                 NewsStorage.shared.sync()
             }
         }

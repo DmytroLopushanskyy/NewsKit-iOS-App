@@ -10,6 +10,5 @@ import Foundation
 
 struct Article {
     var url, title, description, image, keywords, website: String
-    
 
 }

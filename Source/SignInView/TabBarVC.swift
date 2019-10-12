@@ -16,7 +16,6 @@ class TabBarVC: UITabBarController {
         coordinator = AppCoordinator.shared
         // Do any additional setup after loading the view.
     }
-    
 
     /*
     // MARK: - Navigation

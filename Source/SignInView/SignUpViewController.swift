@@ -13,9 +13,9 @@ class SignUpViewController: UIViewController, CoordinatableController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var fullname: UITextField!
     @IBOutlet weak var logo: UIImageView!
-    
+
     var coordinator: AppCoordinator!
-    
+
     @IBAction func signUpPressed(_ sender: Any) {
         print("pressed")
         if login?.text == nil || password?.text == nil || fullname?.text == nil {
@@ -27,11 +27,10 @@ class SignUpViewController: UIViewController, CoordinatableController {
             APIhandler.shared.signUp(username: login.text!, password: password.text!, fullname: fullname.text!)
         }
     }
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround() 
+        self.hideKeyboardWhenTappedAround()
 
         if #available(iOS 13.0, *) {
             var image: UIImage
@@ -47,7 +46,7 @@ class SignUpViewController: UIViewController, CoordinatableController {
             print("Image set!")
         }
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
@@ -68,10 +67,9 @@ class SignUpViewController: UIViewController, CoordinatableController {
                     print("Image changed to dark")
                 }
             }
-            
+
         }
     }
-    
 
     /*
     // MARK: - Navigation

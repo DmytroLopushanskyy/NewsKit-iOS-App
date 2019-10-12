@@ -10,9 +10,9 @@ import Foundation
 
 class NewsStorage {
     static let shared = NewsStorage()
-    
+
     var news = [ArticleData]()
-    
+
     func sync() {
         User.shared.newsToSendArticle = NewsStorage.shared.news
         DispatchQueue.main.async {

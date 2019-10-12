@@ -11,8 +11,8 @@ import Foundation
 class APIhandler {
     static let shared = APIhandler()
     private let decoder = JSONDecoder()
-    
-    func signIn(username: String, password: String, callback: (() -> Void)? = nil){
+
+    func signIn(username: String, password: String, callback: (() -> Void)? = nil) {
         let urlString = "http://newskit.pythonanywhere.com/api/signin"
         let url = URL(string: urlString)!
         var encodedPassword: String
@@ -25,7 +25,7 @@ class APIhandler {
         } catch {
             encodedPassword = password
         }
-        
+
         let parameterDictionary = ["username": username, "password": encodedPassword, "api_key": "SomeSuperSecretApiKeyForiOSNewsKitApplication2019_ODO"]
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -34,7 +34,7 @@ class APIhandler {
             return
         }
         request.httpBody = httpBody
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: request) { (data, _, _) in
             if data != nil {
                 if let json = try? JSONSerialization.jsonObject(with: data!, options: []) as? [String: Any] {
                     if let name = json["name"] as? String {
@@ -56,7 +56,7 @@ class APIhandler {
                         User.shared.newsToSendID = newsToSend.components(separatedBy: ", ")
                     }
                 }
-                
+
                 print("user logged in!", User.shared.username)
                 do {
                     let encodedUsername = try generateHash(for: User.shared.username)
@@ -65,7 +65,7 @@ class APIhandler {
                } catch {
                    print("Error in user encoding!")
                }
-                
+
             }
             DispatchQueue.main.async {
                 NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "userLoggedIn")))
@@ -80,8 +80,8 @@ class APIhandler {
             print("presenting main VC")
         }
     }
-    
-    func signUp(username: String, password: String, fullname: String, callback: (() -> Void)? = nil){
+
+    func signUp(username: String, password: String, fullname: String, callback: (() -> Void)? = nil) {
         let urlString = "http://newskit.pythonanywhere.com/api/signup"
         let url = URL(string: urlString)!
         var encodedPassword: String
@@ -90,7 +90,7 @@ class APIhandler {
         } catch {
             encodedPassword = password
         }
-        
+
         let parameterDictionary = ["username": username, "password": encodedPassword, "fullname": fullname, "api_key": "SomeSuperSecretApiKeyForiOSNewsKitApplication2019_ODO"]
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -110,7 +110,7 @@ class APIhandler {
                 } catch {
                     print("Error in user encoding!")
                 }
-                
+
             } else {
                 print(response ?? "no response", error ?? "no error", data ?? "no data")
             }
@@ -120,7 +120,7 @@ class APIhandler {
         }
         dataTask.resume()
         NotificationCenter.default.addObserver(self, selector: #selector(userCreated), name: NSNotification.Name(rawValue: "userCreated"), object: nil)
-        
+
     }
     @objc func userCreated() {
         DispatchQueue.main.async {
@@ -128,12 +128,12 @@ class APIhandler {
             AppCoordinator.shared.presentAfterLoginTopicsViewController()
         }
     }
-    
-    func changeTopics(topics: String, callback: (() -> Void)? = nil){
+
+    func changeTopics(topics: String, callback: (() -> Void)? = nil) {
         let urlString = "http://newskit.pythonanywhere.com/api/changetopics"
         let url = URL(string: urlString)!
-        
-        let parameterDictionary = ["username": username, "topics": topics.lowercased(), "api_key": "SomeSuperSecretApiKeyForiOSNewsKitApplication2019_ODO"]
+
+        let parameterDictionary = ["username": User.shared.username, "topics": topics.lowercased(), "api_key": "SomeSuperSecretApiKeyForiOSNewsKitApplication2019_ODO"]
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
@@ -150,11 +150,11 @@ class APIhandler {
         }
         dataTask.resume()
     }
-    
-    func changeWebsite(website: Int, callback: (() -> Void)? = nil){
+
+    func changeWebsite(website: Int, callback: (() -> Void)? = nil) {
         let urlString = "http://newskit.pythonanywhere.com/api/changewebsite"
         let url = URL(string: urlString)!
-        
+
         let parameterDictionary = ["username": User.shared.username, "website": String(website), "api_key": "SomeSuperSecretApiKeyForiOSNewsKitApplication2019_ODO"]
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -172,11 +172,11 @@ class APIhandler {
         }
         dataTask.resume()
     }
-    
-    func generateFirstNews(){
+
+    func generateFirstNews(funcToCallWhenFinished: String = "FirstNewsGenerated" ) {
         let urlString = "http://newskit.pythonanywhere.com/api/generatenews"
         let url = URL(string: urlString)!
-        
+
         let parameterDictionary = ["username": User.shared.username, "api_key": "SomeSuperSecretApiKeyForiOSNewsKitApplication2019_ODO"]
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -189,26 +189,37 @@ class APIhandler {
             if data != nil {
                 print("News generated changed!")
                 DispatchQueue.main.async {
-                    NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: "FirstNewsGenerated")))
+                    NotificationCenter.default.post(Notification(name: Notification.Name(rawValue: funcToCallWhenFinished)))
                 }
             } else {
                 print(response ?? "no response", error ?? "no error", data ?? "no data")
             }
         }
         dataTask.resume()
-        NotificationCenter.default.addObserver(self, selector: #selector(firstNewsGenerated), name: NSNotification.Name(rawValue: "FirstNewsGenerated"), object: nil)
+
+        if funcToCallWhenFinished == "autoReload" {
+            NotificationCenter.default.addObserver(self, selector: #selector(autoReload), name: NSNotification.Name(rawValue: "autoReload"), object: nil)
+        } else {
+            NotificationCenter.default.addObserver(self, selector: #selector(firstNewsGenerated), name: NSNotification.Name(rawValue: "FirstNewsGenerated"), object: nil)
+        }
     }
     @objc func firstNewsGenerated() {
         DispatchQueue.main.async {
-            print("something should happen...")
-            //AppCoordinator.shared.presentMainViewController()
+            print("firstNewsGenerated")
+            AppCoordinator.shared.presentMainViewController()
         }
     }
-    
-    func generateWebsites(){
+    @objc func autoReload() {
+        DispatchQueue.main.async {
+            print("autoReload")
+            Repository.shared.getNews(forceReloadDataFromAPI: true)
+        }
+    }
+
+    func generateWebsites() {
         let urlString = "http://newskit.pythonanywhere.com/api/generatewebsites"
         let url = URL(string: urlString)!
-        
+
         let parameterDictionary = ["username": User.shared.username, "api_key": "SomeSuperSecretApiKeyForiOSNewsKitApplication2019_ODO"]
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -232,9 +243,9 @@ class APIhandler {
     }
     @objc func generatedWebsites() {
         DispatchQueue.main.async {
-            print("something should happen...")
-            //AppCoordinator.shared.presentMainViewController()
+            AppCoordinator.shared.presentAfterLoginSitesViewController()
+
         }
     }
-    
+
 }

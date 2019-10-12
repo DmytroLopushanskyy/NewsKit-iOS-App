@@ -30,7 +30,7 @@ extension UIImageView {
                 let data = data, error == nil,
                 var image = UIImage(data: data)
                 else { return }
-            DispatchQueue.main.async() {
+            DispatchQueue.main.async {
 //                if blur {
 //                    image = image.blurEffect()
 //                }

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 @available(iOS 13.0, *)
 let dynamicColor = UIColor { (traitCollection: UITraitCollection) -> UIColor in
     switch traitCollection.userInterfaceStyle {
@@ -32,5 +31,3 @@ let dynamicColorReversed = UIColor { (traitCollection: UITraitCollection) -> UIC
         return .black
     }
 }
-
-

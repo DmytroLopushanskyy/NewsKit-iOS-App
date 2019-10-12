@@ -1,20 +1,26 @@
 PODS:
   - CryptoSwift (1.0.0)
-  - SwiftLint (0.34.0)
+  - SDWebImage (5.2.3):
+    - SDWebImage/Core (= 5.2.3)
+  - SDWebImage/Core (5.2.3)
+  - SwiftLint (0.35.0)
 
 DEPENDENCIES:
   - CryptoSwift
+  - SDWebImage (~> 5.0)
   - SwiftLint
 
 SPEC REPOS:
-  trunk:
+  https://github.com/cocoapods/specs.git:
     - CryptoSwift
+    - SDWebImage
     - SwiftLint
 
 SPEC CHECKSUMS:
   CryptoSwift: d81eeaa59dc5a8d03720fe919a6fd07b51f7439f
-  SwiftLint: 79d48a17c6565dc286c37efb8322c7b450f95c67
+  SDWebImage: 46a7f73228f84ce80990c786e4372cf4db5875ce
+  SwiftLint: 5553187048b900c91aa03552807681bb6b027846
 
-PODFILE CHECKSUM: e609aa1aa9ceac2e0bffdda7b116ec9a8bbd267c
+PODFILE CHECKSUM: 14f30c84a33cf15772c074a103235517ff5b2c4a
 
-COCOAPODS: 1.8.1
+COCOAPODS: 1.5.3

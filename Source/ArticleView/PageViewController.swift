@@ -22,7 +22,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         let index = (viewController as! PageContentViewController).index + 1
-        if index > newsList.count - 1{
+        if index > newsList.count - 1 {
             return nil
         }
         return generateContentViewController(index: index)
@@ -38,7 +38,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         self.pageController.dataSource = self
         addChild(pageController)
         view.addSubview(pageController.view)
-
 
         // Do any additional setup after loading the view.
     }
@@ -67,7 +66,6 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
 
         return viewC
     }
-
 
     /*
     // MARK: - Navigation

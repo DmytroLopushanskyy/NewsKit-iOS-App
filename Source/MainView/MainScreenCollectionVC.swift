@@ -16,14 +16,14 @@ class MainScreenCollectionVC: UICollectionViewController,
         CoordinatableController {
     var coordinator: AppCoordinator!
     var refresher: UIRefreshControl!
-    
+
     @IBAction func settingsTapped(_ sender: Any) {
         coordinator.presentSettingsViewController()
     }
-    
+
     var newsList: [ArticleData] = []
-    
-    @objc func dataLoaded(){
+
+    @objc func dataLoaded() {
         newsList = NewsStorage.shared.news
         self.collectionView.reloadData()
         self.refresher.endRefreshing()
@@ -36,16 +36,22 @@ class MainScreenCollectionVC: UICollectionViewController,
         refresher.tintColor = UIColor(red: 212.0/255, green: 212.0/255, blue: 212.0/255, alpha: 1)
         refresher.addTarget(self, action: #selector(updateData), for: .valueChanged)
     }
-    
-    @objc func updateData(){
-        Repository.shared.getNews(forceReloadDataFromAPI: true)
+
+    @objc func updateData() {
+        print(User.shared.newsToSendID.isEmpty, User.shared.newsToSendID, User.shared.newsToSendArticle)
+        if User.shared.newsToSendArticle.isEmpty {
+            print("isEmpty")
+            APIhandler.shared.generateFirstNews(funcToCallWhenFinished: "autoReload")
+        } else {
+            Repository.shared.getNews(forceReloadDataFromAPI: true)
+        }
 
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.tintColor = UIColor.gray
     }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.tintColor = UIColor(red: 220 / 255, green: 60 / 255, blue: 60 / 255, alpha: 1)
     }
@@ -53,7 +59,7 @@ class MainScreenCollectionVC: UICollectionViewController,
     override func viewDidLoad() {
         makeRefresher()
         super.viewDidLoad()
-        collectionView.alwaysBounceVertical = true;
+        collectionView.alwaysBounceVertical = true
         coordinator = AppCoordinator.shared
         NotificationCenter.default.addObserver(self, selector: #selector(dataLoaded), name: NSNotification.Name(rawValue: "synced"), object: nil)
         // Uncomment the following line to preserve selection between presentations
@@ -81,7 +87,7 @@ class MainScreenCollectionVC: UICollectionViewController,
         self.navigationItem.title = User.shared.name
         self.navigationController?.navigationBar.shadowImage = color.image()
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if UIApplication.shared.supportsAlternateIcons {
@@ -90,7 +96,7 @@ class MainScreenCollectionVC: UICollectionViewController,
                 UIApplication.shared.setAlternateIconName(nil)
             } else {
                 print("current icon is primary icon, change to alternative icon")
-                UIApplication.shared.setAlternateIconName("AlternateIcon"){ error in
+                UIApplication.shared.setAlternateIconName("AlternateIcon") { error in
                     if let error = error {
                         print(error.localizedDescription)
                     } else {
@@ -99,7 +105,6 @@ class MainScreenCollectionVC: UICollectionViewController,
                 }
             }
         }
-        
 
         if #available(iOS 13.0, *) {
             let hasUserInterfaceStyleChanged = previousTraitCollection?.hasDifferentColorAppearance(comparedTo: traitCollection)
@@ -269,7 +274,7 @@ extension UIColor {
     }
 }
 
-func delay(_ delay:Double, closure:@escaping ()->()) {
+func delay(_ delay: Double, closure:@escaping ()->Void) {
     let when = DispatchTime.now() + delay
     DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
 }

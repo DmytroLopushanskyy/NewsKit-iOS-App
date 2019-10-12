@@ -67,7 +67,7 @@ class NewsCell: UICollectionViewCell {
         label.centerYAnchor.constraint(equalTo: textViewContainer.centerYAnchor).isActive = true
         self.dropShadow(color: reversedColor, opacity: 1, offSet: CGSize(width: -1, height: 2), radius: 5, scale: true)
     }
-    
+
     func nothingToShow() {
         let label = UILabel()
         label.text = "Статей за вашими темами та сайтами не знайдено. \n Змініть ці налаштування вище та оновіть сторінку свайпом вниз."
@@ -83,13 +83,13 @@ class NewsCell: UICollectionViewCell {
         label.textAlignment = .center
         label.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
     }
-    
+
     override func prepareForReuse() {
         self.contentView.subviews.forEach {
             $0.removeFromSuperview()
         }
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 

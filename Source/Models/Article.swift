@@ -8,11 +8,10 @@
 
 import Foundation
 
-
 struct ArticleData {
     var url, title, description, image, keywords, website: String
-    
-    enum CodingKeys: String, CodingKey{
+
+    enum CodingKeys: String, CodingKey {
         case url = "url"
         case title = "title"
         case description = "description"
@@ -22,7 +21,7 @@ struct ArticleData {
     }
 }
 
-extension ArticleData: Decodable{
+extension ArticleData: Decodable {
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.url = try container.decode(String.self, forKey: .url)

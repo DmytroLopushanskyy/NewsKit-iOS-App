@@ -8,10 +8,9 @@
 
 import Foundation
 
-
 struct NewsData {
     var news: [ArticleData]
-    
+
     enum CodingKeys: String, CodingKey {
         case news = "lastnews"
     }

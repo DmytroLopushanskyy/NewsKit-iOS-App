@@ -33,7 +33,7 @@ import Foundation
 
 class User {
     static var shared = User()
-    
+
     var name = ""
     var username = ""
     var newsToSendID = [String]()
@@ -42,7 +42,7 @@ class User {
     var notificationTime = "12:00"
     var websites = [String]()
     var language = ""
-    
+
     func logout() {
         self.name = ""
         self.username = ""

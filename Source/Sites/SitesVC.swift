@@ -14,10 +14,9 @@ struct siteCell {
     var selected: Bool = false
 }
 
-
 class SitesVC: UITableViewController {
-    var sitesStr:String = "Wylsacom, Телеканал 24, AIN.UA, AppleInsider.ru, DOU, Українська Правда, Факти ICTV, Hromadske.ua, Korrespondent, 112.ua, iSport.ua, Spiegel, BBC US, The Verge, The Guardian, New York Times, Techradar, Android Police, 9to5Mac, Lviv1256, B.Z. Berlin, Unian, 5 Канал, Zaxid.Net, TexTerra, LABA, 032.ua Сайт Львова, MC Today, Львівський портал, LB.ua, РБК-Україна, MediaLab, The Village UA, ZIK.UA, Navsi100, Music Ukraine, Womo, Телеканал M1, Futurism, Harvard Business Review, lviv.com, ВЖЕ, BBC Україна, Tproger, proglib, 4PDA, Keddr, Rozetked, GaGadget, notebookcheck, Andro News, Новое Время, Тиждень UA, Дзеркало Тижня"
-    
+    var sitesStr: String = "Wylsacom, Телеканал 24, AIN.UA, AppleInsider.ru, DOU, Українська Правда, Факти ICTV, Hromadske.ua, Korrespondent, 112.ua, iSport.ua, Spiegel, BBC US, The Verge, The Guardian, New York Times, Techradar, Android Police, 9to5Mac, Lviv1256, B.Z. Berlin, Unian, 5 Канал, Zaxid.Net, TexTerra, LABA, 032.ua Сайт Львова, MC Today, Львівський портал, LB.ua, РБК-Україна, MediaLab, The Village UA, ZIK.UA, Navsi100, Music Ukraine, Womo, Телеканал M1, Futurism, Harvard Business Review, lviv.com, ВЖЕ, BBC Україна, Tproger, proglib, 4PDA, Keddr, Rozetked, GaGadget, notebookcheck, Andro News, Новое Время, Тиждень UA, Дзеркало Тижня"
+
     var sites: [siteCell] = []
     var selectedOptions: [String] = []
 
@@ -28,11 +27,12 @@ class SitesVC: UITableViewController {
                 sites.append(siteCell(name: site))
             }
             for site_id in User.shared.websites {
-                self.selectedOptions.append(String(Int(site_id)! - 1))
+                if let site_id = Int(site_id) {
+                    self.selectedOptions.append(String(site_id - 1))
+                }
             }
             print(selectedOptions)
-            
-            
+
             self.title = "Медіа-джерела"
             self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         }
@@ -83,15 +83,16 @@ class SitesVC: UITableViewController {
                 selectedOptions.append(String(indexPath.row + 1))
             }
             tableView.deselectRow(at: indexPath, animated: true)
-            
+
             APIhandler.shared.changeWebsite(website: indexPath.row + 1)
         }
-    
+
         @objc func doneClicked(sender: UIBarButtonItem) {
-            AppCoordinator.shared.presentMainViewController()
+            AppCoordinator.shared.presentLoading()
+            APIhandler.shared.generateFirstNews()
         }
 
-        func setUpAfterSignUp(){
+        func setUpAfterSignUp() {
             self.title = "Оберіть сайти"
             self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Готово", style: .done, target: self, action: #selector(self.doneClicked(sender:)))
         }

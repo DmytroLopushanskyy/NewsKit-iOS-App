@@ -72,7 +72,7 @@ func popFromLeft() -> CATransition {
     self.type = CATransitionType.reveal
     self.subtype = CATransitionSubtype.fromLeft
     return self
-   
+
 }
 }
 

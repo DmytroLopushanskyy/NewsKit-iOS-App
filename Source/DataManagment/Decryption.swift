@@ -23,5 +23,3 @@ func decodeHash(for stringName: String) throws -> String {
     let string = String(bytes: decrypted, encoding: .utf8) ?? ""
     return string
 }
-
-

@@ -61,8 +61,8 @@ class PageContentViewController: UIViewController, SFSafariViewControllerDelegat
         self.navigationController?.popViewController(animated: true)
     }
     @objc func shareArticle(_ sender: UITapGestureRecognizer) {
-        if let urlStr = article?.url{
-            if let url = NSURL(string: urlStr){
+        if let urlStr = article?.url {
+            if let url = NSURL(string: urlStr) {
                 let activityViewController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
                 activityViewController.popoverPresentationController?.sourceView = self.view
                 self.present(activityViewController, animated: true, completion: nil)

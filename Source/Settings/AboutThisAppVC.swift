@@ -8,15 +8,14 @@
 
 import UIKit
 
-
 class AboutThisAppVC: UIViewController {
 
     @IBOutlet weak var aboutTextView: UITextView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         aboutTextView.text = "Contributors:\n Dmytro Lopushanskyy\n Oleh Mykytyn\n Oleh Tyzhai"
     }
-    
+
 }

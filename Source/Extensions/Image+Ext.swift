@@ -8,8 +8,7 @@
 
 import UIKit
 
-
-extension UIImage{
+extension UIImage {
     func blurEffect() -> UIImage {
         let context = CIContext(options: nil)
         let currentFilter = CIFilter(name: "CIGaussianBlur")
@@ -27,5 +26,3 @@ extension UIImage{
         return processedImage
     }
 }
-
-

@@ -12,7 +12,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var login: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var logo: UIImageView!
-    
+
     @IBAction func signInPressed(_ sender: Any) {
         print("pressed")
         if login?.text == nil || password?.text == nil {
@@ -26,11 +26,11 @@ class SignInViewController: UIViewController {
             }
         }
     }
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround() 
-        
+        self.hideKeyboardWhenTappedAround()
+
         if #available(iOS 13.0, *) {
             var image: UIImage
             switch traitCollection.userInterfaceStyle {
@@ -65,8 +65,7 @@ class SignInViewController: UIViewController {
                     print("Image changed to dark")
                 }
             }
-            
+
         }
     }
 }
-

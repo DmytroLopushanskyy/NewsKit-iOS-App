@@ -54,7 +54,7 @@ class TopicsTableVC: UITableViewController {
         cell.textLabel?.text = categories[indexPath.row].name
         cell.imageView?.image = categories[indexPath.row].image
         cell.tintColor = UIColor(red: 220/255, green: 60/255, blue: 60/255, alpha: 1)
-        
+
         if categories[indexPath.row].selected {
             cell.accessoryType = .checkmark
             selectedOptions.append(indexPath.row)
@@ -86,23 +86,25 @@ class TopicsTableVC: UITableViewController {
             categories[indexPath.row].selected = true
         }
         tableView.deselectRow(at: indexPath, animated: true)
-        
+
         print(categories[indexPath.row].name.lowercased())
         APIhandler.shared.changeTopics(topics: categories[indexPath.row].name)
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
     }
-    
+
     @objc func nextClicked(sender: UIBarButtonItem) {
-        AppCoordinator.shared.presentAfterLoginSitesViewController()
+        //APIhandler.
+//        AppCoordinator.shared.presentAfterLoginSitesViewController()
+        APIhandler.shared.generatedWebsites()
     }
     func setUpTopicsAfterSignUp() {
         self.title = "Оберіть теми"
         self.navigationItem.hidesBackButton = true
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "Далі", style: .done, target: self, action: #selector(self.nextClicked(sender:)))
     }
-    
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
