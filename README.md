@@ -2,23 +2,23 @@
 
 App Features:
 
-1. Авторизація користувача
-    - Логін та реєстрація
-2. Перші налаштування
-    - Вибір цікавих тем
-    - Вибір мови новин
-    - Вибір веб-сайтів, яким людина довіряє
-    - Вибір зручного часу отримання сповіщень про готовність новин
-3. Основні скріни:
-    - Скрін з менюшками і скролом по останніх новинах
-    - Скрін вибраної новини з можливістю відкриття браузера (самої статті в Інтернеті)
-4. Додаткові скріни:
-    - Скрін налаштувань (перевибір часу, версія додатку, rate this app, про додаток)
-    - Скрін перевибору тем
-    - Скрін додавання/видалення ключових слів або топіків
+1. User authorization
+    - Login and registration
+2. Setup settings
+    - Selecting interesting topics
+    - Choosing news languages
+    - Choosing websites that a person trusts
+    - Selecting the most convenient time for new notifications
+3. Main screens:
+    - Menu screen and list of prepared news
+    - Article screen with possibility of link opening in an in-app browser
+4. Additional screens:
+    - Settings screen (time re-selection, app version, rate this app, follow us and logout)
+    - Websites re-selection
+    - Add / Remove Keywords
     
-Ще бажані фічі:
+Feature to come in next versions:
 
-    - Гайд-тур
-    - Hot news (найактуальніше за останній час)
-    - Пошук
+    - Guide tour
+    - Hot news (most popular)
+    - News search
